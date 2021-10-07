@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/app/theme.dart';
 import 'package:movie_app/ui/home/home_screen.dart';
 
 class MovieApp extends StatelessWidget {
@@ -8,9 +9,7 @@ class MovieApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Movie app',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: theme,
       home: const HomeScreen(),
     );
   }
