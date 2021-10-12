@@ -53,7 +53,7 @@ class ApiRepositoryImpl implements ApiRepository {
   }
 
   @override
-  Future<Response> getTopRatedMovies({required String page}) {
+  Future<Response> getTopRatedMovies({required int page}) {
     return _dio.get(
       '/movie/top_rated',
       queryParameters: <String, dynamic>{
@@ -74,7 +74,7 @@ class ApiRepositoryImpl implements ApiRepository {
   }
 
   @override
-  Future<Response> getTopRatedActors({required String page}) {
+  Future<Response> getTopRatedActors({required int page}) {
     return _dio.get(
       '/person/top_rated',
       queryParameters: <String, dynamic>{

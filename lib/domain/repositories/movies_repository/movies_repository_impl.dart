@@ -8,7 +8,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
   final ApiRepository _apiRepository;
 
   @override
-  Future<List<Movie>> searchMovies({required String page, required String query}) {
+  Future<List<Movie>> searchMovies({required int page, required String query}) {
     throw UnimplementedError();
   }
 }
