@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_loggy_dio/flutter_loggy_dio.dart';
 import 'package:movie_app/app/config.dart';
 import 'package:movie_app/source_local/shared_preferences/shared_preferences_keys.dart';
 import 'package:movie_app/source_remote/api_repository/api_repository.dart';
@@ -20,13 +21,15 @@ class ApiRepositoryImpl implements ApiRepository {
 
   String? _guestSessionId;
 
+  /// Dio initialization
   final Dio _dio = Dio()
     ..options = BaseOptions(
       baseUrl: 'https://api.themoviedb.org/3',
       queryParameters: {
         'api_key': apiKey,
       },
-    );
+    )
+    ..interceptors.add(LoggyDioInterceptor());
 
   @override
   Future<bool> hasInternetConnection() async {

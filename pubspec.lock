@@ -251,6 +251,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
+  flutter_loggy_dio:
+    dependency: "direct main"
+    description:
+      name: flutter_loggy_dio
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0+3"
   flutter_riverpod:
     dependency: "direct main"
     description:
@@ -359,13 +366,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
-  logger:
-    dependency: "direct main"
-    description:
-      name: logger
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.0"
   logging:
     dependency: transitive
     description:
@@ -373,6 +373,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  loggy:
+    dependency: "direct main"
+    description:
+      name: loggy
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
   matcher:
     dependency: transitive
     description:
