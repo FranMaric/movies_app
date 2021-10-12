@@ -26,11 +26,9 @@ class _$MovieTearOff {
       required int id,
       @JsonKey(name: 'backdrop_path') required String backdropPath,
       required String overview,
-      required int runtime,
       required String title,
       @JsonKey(name: 'original_language') required String originalLanguage,
       @JsonKey(name: 'release_date') required String releaseDate,
-      required String tagline,
       @JsonKey(name: 'vote_average') required double voteAverage,
       @JsonKey(name: 'vote_count') required int voteCount}) {
     return _Movie(
@@ -38,11 +36,9 @@ class _$MovieTearOff {
       id: id,
       backdropPath: backdropPath,
       overview: overview,
-      runtime: runtime,
       title: title,
       originalLanguage: originalLanguage,
       releaseDate: releaseDate,
-      tagline: tagline,
       voteAverage: voteAverage,
       voteCount: voteCount,
     );
@@ -63,13 +59,11 @@ mixin _$Movie {
   @JsonKey(name: 'backdrop_path')
   String get backdropPath => throw _privateConstructorUsedError;
   String get overview => throw _privateConstructorUsedError;
-  int get runtime => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'original_language')
   String get originalLanguage => throw _privateConstructorUsedError;
   @JsonKey(name: 'release_date')
   String get releaseDate => throw _privateConstructorUsedError;
-  String get tagline => throw _privateConstructorUsedError;
   @JsonKey(name: 'vote_average')
   double get voteAverage => throw _privateConstructorUsedError;
   @JsonKey(name: 'vote_count')
@@ -89,11 +83,9 @@ abstract class $MovieCopyWith<$Res> {
       int id,
       @JsonKey(name: 'backdrop_path') String backdropPath,
       String overview,
-      int runtime,
       String title,
       @JsonKey(name: 'original_language') String originalLanguage,
       @JsonKey(name: 'release_date') String releaseDate,
-      String tagline,
       @JsonKey(name: 'vote_average') double voteAverage,
       @JsonKey(name: 'vote_count') int voteCount});
 }
@@ -112,11 +104,9 @@ class _$MovieCopyWithImpl<$Res> implements $MovieCopyWith<$Res> {
     Object? id = freezed,
     Object? backdropPath = freezed,
     Object? overview = freezed,
-    Object? runtime = freezed,
     Object? title = freezed,
     Object? originalLanguage = freezed,
     Object? releaseDate = freezed,
-    Object? tagline = freezed,
     Object? voteAverage = freezed,
     Object? voteCount = freezed,
   }) {
@@ -137,10 +127,6 @@ class _$MovieCopyWithImpl<$Res> implements $MovieCopyWith<$Res> {
           ? _value.overview
           : overview // ignore: cast_nullable_to_non_nullable
               as String,
-      runtime: runtime == freezed
-          ? _value.runtime
-          : runtime // ignore: cast_nullable_to_non_nullable
-              as int,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -152,10 +138,6 @@ class _$MovieCopyWithImpl<$Res> implements $MovieCopyWith<$Res> {
       releaseDate: releaseDate == freezed
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      tagline: tagline == freezed
-          ? _value.tagline
-          : tagline // ignore: cast_nullable_to_non_nullable
               as String,
       voteAverage: voteAverage == freezed
           ? _value.voteAverage
@@ -179,11 +161,9 @@ abstract class _$MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
       int id,
       @JsonKey(name: 'backdrop_path') String backdropPath,
       String overview,
-      int runtime,
       String title,
       @JsonKey(name: 'original_language') String originalLanguage,
       @JsonKey(name: 'release_date') String releaseDate,
-      String tagline,
       @JsonKey(name: 'vote_average') double voteAverage,
       @JsonKey(name: 'vote_count') int voteCount});
 }
@@ -203,11 +183,9 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
     Object? id = freezed,
     Object? backdropPath = freezed,
     Object? overview = freezed,
-    Object? runtime = freezed,
     Object? title = freezed,
     Object? originalLanguage = freezed,
     Object? releaseDate = freezed,
-    Object? tagline = freezed,
     Object? voteAverage = freezed,
     Object? voteCount = freezed,
   }) {
@@ -228,10 +206,6 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
           ? _value.overview
           : overview // ignore: cast_nullable_to_non_nullable
               as String,
-      runtime: runtime == freezed
-          ? _value.runtime
-          : runtime // ignore: cast_nullable_to_non_nullable
-              as int,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -243,10 +217,6 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
       releaseDate: releaseDate == freezed
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      tagline: tagline == freezed
-          ? _value.tagline
-          : tagline // ignore: cast_nullable_to_non_nullable
               as String,
       voteAverage: voteAverage == freezed
           ? _value.voteAverage
@@ -268,11 +238,9 @@ class _$_Movie implements _Movie {
       required this.id,
       @JsonKey(name: 'backdrop_path') required this.backdropPath,
       required this.overview,
-      required this.runtime,
       required this.title,
       @JsonKey(name: 'original_language') required this.originalLanguage,
       @JsonKey(name: 'release_date') required this.releaseDate,
-      required this.tagline,
       @JsonKey(name: 'vote_average') required this.voteAverage,
       @JsonKey(name: 'vote_count') required this.voteCount});
 
@@ -289,8 +257,6 @@ class _$_Movie implements _Movie {
   @override
   final String overview;
   @override
-  final int runtime;
-  @override
   final String title;
   @override
   @JsonKey(name: 'original_language')
@@ -298,8 +264,6 @@ class _$_Movie implements _Movie {
   @override
   @JsonKey(name: 'release_date')
   final String releaseDate;
-  @override
-  final String tagline;
   @override
   @JsonKey(name: 'vote_average')
   final double voteAverage;
@@ -309,7 +273,7 @@ class _$_Movie implements _Movie {
 
   @override
   String toString() {
-    return 'Movie(adult: $adult, id: $id, backdropPath: $backdropPath, overview: $overview, runtime: $runtime, title: $title, originalLanguage: $originalLanguage, releaseDate: $releaseDate, tagline: $tagline, voteAverage: $voteAverage, voteCount: $voteCount)';
+    return 'Movie(adult: $adult, id: $id, backdropPath: $backdropPath, overview: $overview, title: $title, originalLanguage: $originalLanguage, releaseDate: $releaseDate, voteAverage: $voteAverage, voteCount: $voteCount)';
   }
 
   @override
@@ -326,9 +290,6 @@ class _$_Movie implements _Movie {
             (identical(other.overview, overview) ||
                 const DeepCollectionEquality()
                     .equals(other.overview, overview)) &&
-            (identical(other.runtime, runtime) ||
-                const DeepCollectionEquality()
-                    .equals(other.runtime, runtime)) &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.originalLanguage, originalLanguage) ||
@@ -337,9 +298,6 @@ class _$_Movie implements _Movie {
             (identical(other.releaseDate, releaseDate) ||
                 const DeepCollectionEquality()
                     .equals(other.releaseDate, releaseDate)) &&
-            (identical(other.tagline, tagline) ||
-                const DeepCollectionEquality()
-                    .equals(other.tagline, tagline)) &&
             (identical(other.voteAverage, voteAverage) ||
                 const DeepCollectionEquality()
                     .equals(other.voteAverage, voteAverage)) &&
@@ -355,11 +313,9 @@ class _$_Movie implements _Movie {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(backdropPath) ^
       const DeepCollectionEquality().hash(overview) ^
-      const DeepCollectionEquality().hash(runtime) ^
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(originalLanguage) ^
       const DeepCollectionEquality().hash(releaseDate) ^
-      const DeepCollectionEquality().hash(tagline) ^
       const DeepCollectionEquality().hash(voteAverage) ^
       const DeepCollectionEquality().hash(voteCount);
 
@@ -380,11 +336,9 @@ abstract class _Movie implements Movie {
       required int id,
       @JsonKey(name: 'backdrop_path') required String backdropPath,
       required String overview,
-      required int runtime,
       required String title,
       @JsonKey(name: 'original_language') required String originalLanguage,
       @JsonKey(name: 'release_date') required String releaseDate,
-      required String tagline,
       @JsonKey(name: 'vote_average') required double voteAverage,
       @JsonKey(name: 'vote_count') required int voteCount}) = _$_Movie;
 
@@ -400,8 +354,6 @@ abstract class _Movie implements Movie {
   @override
   String get overview => throw _privateConstructorUsedError;
   @override
-  int get runtime => throw _privateConstructorUsedError;
-  @override
   String get title => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'original_language')
@@ -409,8 +361,6 @@ abstract class _Movie implements Movie {
   @override
   @JsonKey(name: 'release_date')
   String get releaseDate => throw _privateConstructorUsedError;
-  @override
-  String get tagline => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'vote_average')
   double get voteAverage => throw _privateConstructorUsedError;
