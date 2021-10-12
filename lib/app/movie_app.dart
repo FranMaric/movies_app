@@ -9,6 +9,7 @@ class MovieApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Movie app',
+      debugShowCheckedModeBanner: false,
       theme: theme,
       home: const HomeScreen(),
     );
