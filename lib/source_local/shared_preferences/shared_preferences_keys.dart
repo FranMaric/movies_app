@@ -1,1 +1,1 @@
-const guesstSessionIdPrefsKey = 'GUEST_SESSION_ID';
+const guestSessionPrefsKey = 'GUEST_SESSION_ID';
