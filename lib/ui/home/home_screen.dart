@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/ui/home/views/actors_view.dart';
+import 'package:movie_app/ui/home/actors_view/actors_view.dart';
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:movie_app/source_remote/api_repository/api_repository_provider.dart';
-import 'package:movie_app/ui/home/views/movies_view.dart';
+import 'package:movie_app/ui/home/movies_view/movies_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
