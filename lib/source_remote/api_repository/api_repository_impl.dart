@@ -6,20 +6,17 @@ import 'package:movie_app/app/config.dart';
 import 'package:movie_app/source_local/shared_preferences/shared_preferences_keys.dart';
 import 'package:movie_app/source_remote/api_repository/api_repository.dart';
 import 'package:movie_app/extensions/nullable_int_extension.dart';
+import 'package:movie_app/source_remote/guest_session/guest_session.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiRepositoryImpl implements ApiRepository {
   ApiRepositoryImpl({required String apiKey, required SharedPreferences prefs}) : _prefs = prefs {
-    _guestSessionId = _prefs.getString(guesstSessionIdPrefsKey);
-
-    if (_guestSessionId == null) {
-      getNewGuestSessionId();
-    }
+    initializeGuesstSession();
   }
 
   final SharedPreferences _prefs;
 
-  String? _guestSessionId;
+  GuestSession? _guestSession;
 
   /// Dio initialization
   final Dio _dio = Dio()
@@ -83,7 +80,21 @@ class ApiRepositoryImpl implements ApiRepository {
     );
   }
 
-  Future<String?> getNewGuestSessionId() async {
+  void initializeGuesstSession() async {
+    final guestSessionString = _prefs.getString(guestSessionPrefsKey);
+
+    if (guestSessionString != null) {
+      final args = guestSessionString.split(';;');
+      _guestSession = GuestSession(id: args[0], expiresAt: DateTime.fromMillisecondsSinceEpoch(int.parse(args[1])));
+    } else {
+      _guestSession = await getNewGuestSession();
+      if (_guestSession != null) {
+        _prefs.setString(guestSessionPrefsKey, '${_guestSession!.id};;${_guestSession!.expiresAt.millisecondsSinceEpoch}');
+      }
+    }
+  }
+
+  Future<GuestSession?> getNewGuestSession() async {
     try {
       final response = await _dio.get(
         '/authentication/guest_session/new',
@@ -91,7 +102,7 @@ class ApiRepositoryImpl implements ApiRepository {
       );
 
       if (response.statusCode.isSuccessful) {
-        return response.data['guest_session_id'];
+        return GuestSession.fromJson(response.data);
       }
     } catch (e) {
       return null;
