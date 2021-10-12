@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/ui/home/views/actors_view.dart';
+// import 'package:flutter_riverpod/flutter_riverpod.dart';
+// import 'package:movie_app/source_remote/api_repository/api_repository_provider.dart';
+import 'package:movie_app/ui/home/views/movies_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -8,8 +12,40 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Movies'),
+        centerTitle: true,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.tv),
+            label: 'Movies',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people),
+            label: 'Actors',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Theme.of(context).primaryColor,
+        onTap: _onItemTapped,
+      ),
+      body: <Widget>[
+        MoviesView(),
+        ActorsView(),
+      ].elementAt(_selectedIndex),
+    );
   }
 }
