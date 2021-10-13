@@ -21,7 +21,13 @@ class MoviesView extends StatelessWidget {
               return watch(moviesViewNotifierProvider).when(
                 initial: () => Container(),
                 loading: () => const Center(child: CircularProgressIndicator()),
-                error: (error) => Text(error.toString()),
+                error: (error) => Center(
+                  child: Text(
+                    error.toString(),
+                    style: Theme.of(context).textTheme.caption,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
                 data: (page, query, movies) {
                   return ListView.builder(
                     itemCount: movies.length,
