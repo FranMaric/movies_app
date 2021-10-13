@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:movie_app/ui/home/movies_view/movie_item.dart';
+import 'package:movie_app/ui/home/movies_view/movie_widget.dart';
 import 'package:movie_app/ui/home/movies_view/movies_notifier_provider.dart';
 import 'package:movie_app/ui/home/widgets/search_bar.dart';
 
@@ -25,8 +25,11 @@ class MoviesView extends StatelessWidget {
                 data: (page, query, movies) {
                   return ListView.builder(
                     itemCount: movies.length,
-                    itemBuilder: (context, index) => MovieItem(
+                    itemBuilder: (context, index) => MovieWidget(
                       movie: movies[index],
+                      onTap: () {
+                        //TODO: Navigate to details
+                      },
                     ),
                   );
                 },
