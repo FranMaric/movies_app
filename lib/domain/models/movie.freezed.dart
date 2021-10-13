@@ -22,25 +22,13 @@ class _$MovieTearOff {
   const _$MovieTearOff();
 
   _Movie call(
-      {required bool adult,
-      required int id,
+      {required int id,
       @JsonKey(name: 'backdrop_path') required String backdropPath,
-      required String overview,
-      required String title,
-      @JsonKey(name: 'original_language') required String originalLanguage,
-      @JsonKey(name: 'release_date') required String releaseDate,
-      @JsonKey(name: 'vote_average') required double voteAverage,
-      @JsonKey(name: 'vote_count') required int voteCount}) {
+      required String title}) {
     return _Movie(
-      adult: adult,
       id: id,
       backdropPath: backdropPath,
-      overview: overview,
       title: title,
-      originalLanguage: originalLanguage,
-      releaseDate: releaseDate,
-      voteAverage: voteAverage,
-      voteCount: voteCount,
     );
   }
 
@@ -54,20 +42,10 @@ const $Movie = _$MovieTearOff();
 
 /// @nodoc
 mixin _$Movie {
-  bool get adult => throw _privateConstructorUsedError;
   int get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'backdrop_path')
   String get backdropPath => throw _privateConstructorUsedError;
-  String get overview => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  @JsonKey(name: 'original_language')
-  String get originalLanguage => throw _privateConstructorUsedError;
-  @JsonKey(name: 'release_date')
-  String get releaseDate => throw _privateConstructorUsedError;
-  @JsonKey(name: 'vote_average')
-  double get voteAverage => throw _privateConstructorUsedError;
-  @JsonKey(name: 'vote_count')
-  int get voteCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -79,15 +57,9 @@ abstract class $MovieCopyWith<$Res> {
   factory $MovieCopyWith(Movie value, $Res Function(Movie) then) =
       _$MovieCopyWithImpl<$Res>;
   $Res call(
-      {bool adult,
-      int id,
+      {int id,
       @JsonKey(name: 'backdrop_path') String backdropPath,
-      String overview,
-      String title,
-      @JsonKey(name: 'original_language') String originalLanguage,
-      @JsonKey(name: 'release_date') String releaseDate,
-      @JsonKey(name: 'vote_average') double voteAverage,
-      @JsonKey(name: 'vote_count') int voteCount});
+      String title});
 }
 
 /// @nodoc
@@ -100,21 +72,11 @@ class _$MovieCopyWithImpl<$Res> implements $MovieCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? adult = freezed,
     Object? id = freezed,
     Object? backdropPath = freezed,
-    Object? overview = freezed,
     Object? title = freezed,
-    Object? originalLanguage = freezed,
-    Object? releaseDate = freezed,
-    Object? voteAverage = freezed,
-    Object? voteCount = freezed,
   }) {
     return _then(_value.copyWith(
-      adult: adult == freezed
-          ? _value.adult
-          : adult // ignore: cast_nullable_to_non_nullable
-              as bool,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -123,30 +85,10 @@ class _$MovieCopyWithImpl<$Res> implements $MovieCopyWith<$Res> {
           ? _value.backdropPath
           : backdropPath // ignore: cast_nullable_to_non_nullable
               as String,
-      overview: overview == freezed
-          ? _value.overview
-          : overview // ignore: cast_nullable_to_non_nullable
-              as String,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      originalLanguage: originalLanguage == freezed
-          ? _value.originalLanguage
-          : originalLanguage // ignore: cast_nullable_to_non_nullable
-              as String,
-      releaseDate: releaseDate == freezed
-          ? _value.releaseDate
-          : releaseDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      voteAverage: voteAverage == freezed
-          ? _value.voteAverage
-          : voteAverage // ignore: cast_nullable_to_non_nullable
-              as double,
-      voteCount: voteCount == freezed
-          ? _value.voteCount
-          : voteCount // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -157,15 +99,9 @@ abstract class _$MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
       __$MovieCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool adult,
-      int id,
+      {int id,
       @JsonKey(name: 'backdrop_path') String backdropPath,
-      String overview,
-      String title,
-      @JsonKey(name: 'original_language') String originalLanguage,
-      @JsonKey(name: 'release_date') String releaseDate,
-      @JsonKey(name: 'vote_average') double voteAverage,
-      @JsonKey(name: 'vote_count') int voteCount});
+      String title});
 }
 
 /// @nodoc
@@ -179,21 +115,11 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? adult = freezed,
     Object? id = freezed,
     Object? backdropPath = freezed,
-    Object? overview = freezed,
     Object? title = freezed,
-    Object? originalLanguage = freezed,
-    Object? releaseDate = freezed,
-    Object? voteAverage = freezed,
-    Object? voteCount = freezed,
   }) {
     return _then(_Movie(
-      adult: adult == freezed
-          ? _value.adult
-          : adult // ignore: cast_nullable_to_non_nullable
-              as bool,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -202,30 +128,10 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
           ? _value.backdropPath
           : backdropPath // ignore: cast_nullable_to_non_nullable
               as String,
-      overview: overview == freezed
-          ? _value.overview
-          : overview // ignore: cast_nullable_to_non_nullable
-              as String,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      originalLanguage: originalLanguage == freezed
-          ? _value.originalLanguage
-          : originalLanguage // ignore: cast_nullable_to_non_nullable
-              as String,
-      releaseDate: releaseDate == freezed
-          ? _value.releaseDate
-          : releaseDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      voteAverage: voteAverage == freezed
-          ? _value.voteAverage
-          : voteAverage // ignore: cast_nullable_to_non_nullable
-              as double,
-      voteCount: voteCount == freezed
-          ? _value.voteCount
-          : voteCount // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -234,90 +140,45 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Movie implements _Movie {
   const _$_Movie(
-      {required this.adult,
-      required this.id,
+      {required this.id,
       @JsonKey(name: 'backdrop_path') required this.backdropPath,
-      required this.overview,
-      required this.title,
-      @JsonKey(name: 'original_language') required this.originalLanguage,
-      @JsonKey(name: 'release_date') required this.releaseDate,
-      @JsonKey(name: 'vote_average') required this.voteAverage,
-      @JsonKey(name: 'vote_count') required this.voteCount});
+      required this.title});
 
   factory _$_Movie.fromJson(Map<String, dynamic> json) =>
       _$$_MovieFromJson(json);
 
-  @override
-  final bool adult;
   @override
   final int id;
   @override
   @JsonKey(name: 'backdrop_path')
   final String backdropPath;
   @override
-  final String overview;
-  @override
   final String title;
-  @override
-  @JsonKey(name: 'original_language')
-  final String originalLanguage;
-  @override
-  @JsonKey(name: 'release_date')
-  final String releaseDate;
-  @override
-  @JsonKey(name: 'vote_average')
-  final double voteAverage;
-  @override
-  @JsonKey(name: 'vote_count')
-  final int voteCount;
 
   @override
   String toString() {
-    return 'Movie(adult: $adult, id: $id, backdropPath: $backdropPath, overview: $overview, title: $title, originalLanguage: $originalLanguage, releaseDate: $releaseDate, voteAverage: $voteAverage, voteCount: $voteCount)';
+    return 'Movie(id: $id, backdropPath: $backdropPath, title: $title)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Movie &&
-            (identical(other.adult, adult) ||
-                const DeepCollectionEquality().equals(other.adult, adult)) &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.backdropPath, backdropPath) ||
                 const DeepCollectionEquality()
                     .equals(other.backdropPath, backdropPath)) &&
-            (identical(other.overview, overview) ||
-                const DeepCollectionEquality()
-                    .equals(other.overview, overview)) &&
             (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
-            (identical(other.originalLanguage, originalLanguage) ||
-                const DeepCollectionEquality()
-                    .equals(other.originalLanguage, originalLanguage)) &&
-            (identical(other.releaseDate, releaseDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.releaseDate, releaseDate)) &&
-            (identical(other.voteAverage, voteAverage) ||
-                const DeepCollectionEquality()
-                    .equals(other.voteAverage, voteAverage)) &&
-            (identical(other.voteCount, voteCount) ||
-                const DeepCollectionEquality()
-                    .equals(other.voteCount, voteCount)));
+                const DeepCollectionEquality().equals(other.title, title)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(adult) ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(backdropPath) ^
-      const DeepCollectionEquality().hash(overview) ^
-      const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(originalLanguage) ^
-      const DeepCollectionEquality().hash(releaseDate) ^
-      const DeepCollectionEquality().hash(voteAverage) ^
-      const DeepCollectionEquality().hash(voteCount);
+      const DeepCollectionEquality().hash(title);
 
   @JsonKey(ignore: true)
   @override
@@ -332,41 +193,19 @@ class _$_Movie implements _Movie {
 
 abstract class _Movie implements Movie {
   const factory _Movie(
-      {required bool adult,
-      required int id,
+      {required int id,
       @JsonKey(name: 'backdrop_path') required String backdropPath,
-      required String overview,
-      required String title,
-      @JsonKey(name: 'original_language') required String originalLanguage,
-      @JsonKey(name: 'release_date') required String releaseDate,
-      @JsonKey(name: 'vote_average') required double voteAverage,
-      @JsonKey(name: 'vote_count') required int voteCount}) = _$_Movie;
+      required String title}) = _$_Movie;
 
   factory _Movie.fromJson(Map<String, dynamic> json) = _$_Movie.fromJson;
 
-  @override
-  bool get adult => throw _privateConstructorUsedError;
   @override
   int get id => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'backdrop_path')
   String get backdropPath => throw _privateConstructorUsedError;
   @override
-  String get overview => throw _privateConstructorUsedError;
-  @override
   String get title => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(name: 'original_language')
-  String get originalLanguage => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(name: 'release_date')
-  String get releaseDate => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(name: 'vote_average')
-  double get voteAverage => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(name: 'vote_count')
-  int get voteCount => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$MovieCopyWith<_Movie> get copyWith => throw _privateConstructorUsedError;
