@@ -28,6 +28,9 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        enableFeedback: true,
+        unselectedItemColor: Colors.white,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.tv),
