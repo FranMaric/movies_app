@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:alice/alice.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_loggy_dio/flutter_loggy_dio.dart';
 import 'package:movie_app/app/config.dart';
@@ -9,14 +10,27 @@ import 'package:movie_app/extensions/nullable_int_extension.dart';
 import 'package:movie_app/source_remote/guest_session/guest_session.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+const useAlice = true;
+
 class ApiRepositoryImpl implements ApiRepository {
   ApiRepositoryImpl({required String apiKey, required SharedPreferences prefs}) : _prefs = prefs {
+    _dio.interceptors.addAll(
+      [
+        LoggyDioInterceptor(),
+        if (useAlice) _alice.getDioInterceptor(),
+      ],
+    );
+
     initializeGuesstSession();
   }
 
   final SharedPreferences _prefs;
 
   GuestSession? _guestSession;
+
+  final Alice _alice = Alice();
+
+  Alice get alice => _alice;
 
   /// Dio initialization
   final Dio _dio = Dio()
@@ -25,8 +39,7 @@ class ApiRepositoryImpl implements ApiRepository {
       queryParameters: {
         'api_key': apiKey,
       },
-    )
-    ..interceptors.add(LoggyDioInterceptor());
+    );
 
   @override
   Future<bool> hasInternetConnection() async {
