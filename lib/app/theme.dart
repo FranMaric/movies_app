@@ -15,6 +15,8 @@ final theme = ThemeData(
   textTheme: textTheme,
   inputDecorationTheme: InputDecorationTheme(
     hintStyle: const TextStyle(
+      fontSize: 19,
+      fontWeight: FontWeight.w400,
       color: Colors.white,
     ),
     contentPadding: const EdgeInsets.all(15.0),

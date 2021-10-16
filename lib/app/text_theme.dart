@@ -9,7 +9,7 @@ const textTheme = TextTheme(
   ),
   subtitle2: TextStyle(
     color: Colors.white,
-    fontSize: 21.0,
-    fontWeight: FontWeight.bold,
+    fontSize: 18.0,
+    fontWeight: FontWeight.w400,
   ),
 );
