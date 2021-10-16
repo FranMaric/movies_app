@@ -52,7 +52,7 @@ class MovieWidget extends StatelessWidget {
                   alignment: Alignment.bottomRight,
                   child: Text(
                     movie.title,
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.subtitle1,
                     textAlign: TextAlign.right,
                   ),
                 ),

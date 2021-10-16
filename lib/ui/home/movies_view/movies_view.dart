@@ -24,7 +24,7 @@ class MoviesView extends StatelessWidget {
                 error: (error) => Center(
                   child: Text(
                     error.toString(),
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.subtitle1,
                     textAlign: TextAlign.center,
                   ),
                 ),
