@@ -37,6 +37,7 @@ class MoviesNotifier extends StateNotifier<MoviesState> {
       (movies) => state = MoviesState.data(
         page: 1,
         movies: movies,
+        query: query,
       ),
     );
   }
