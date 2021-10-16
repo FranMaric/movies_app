@@ -62,4 +62,14 @@ class MoviesNotifier extends StateNotifier<MoviesState> {
       );
     }
   }
+
+  Future<void> onRefresh() async {
+    if (state is MoviesStateData) {
+      if ((state as MoviesStateData).query == null) {
+        _getTopRatedMovies(page: 1);
+      } else {
+        onSearch((state as MoviesStateData).query!);
+      }
+    }
+  }
 }

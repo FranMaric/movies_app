@@ -56,26 +56,30 @@ class MoviesView extends StatelessWidget with FailureHandlingMixin {
                       ),
                     ),
                     data: (page, isLoadingNextPage, query, movies) {
-                      return ListView.builder(
-                          controller: scrollController,
-                          itemCount: movies.length + (isLoadingNextPage ? 1 : 0),
-                          itemBuilder: (context, index) {
-                            if (index < movies.length) {
-                              return MovieWidget(
-                                movie: movies[index],
-                                onTap: () {
-                                  //TODO: Navigate to details
-                                },
-                              );
-                            }
+                      return RefreshIndicator(
+                        onRefresh: context.read(moviesViewNotifierProvider.notifier).onRefresh,
+                        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                        child: ListView.builder(
+                            controller: scrollController,
+                            itemCount: movies.length + (isLoadingNextPage ? 1 : 0),
+                            itemBuilder: (context, index) {
+                              if (index < movies.length) {
+                                return MovieWidget(
+                                  movie: movies[index],
+                                  onTap: () {
+                                    //TODO: Navigate to details
+                                  },
+                                );
+                              }
 
-                            return Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: CircularProgressIndicator(
-                                color: Theme.of(context).primaryColor,
-                              ),
-                            );
-                          });
+                              return Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: CircularProgressIndicator(
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                              );
+                            }),
+                      );
                     },
                   );
                 },
