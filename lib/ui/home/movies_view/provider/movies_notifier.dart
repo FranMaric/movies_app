@@ -16,7 +16,7 @@ class MoviesNotifier extends StateNotifier<MoviesState> {
     final moviesOrFailure = await _moviesRepository.getTopRatedMovies(page: page);
 
     moviesOrFailure.fold(
-      (failure) => null,
+      (failure) => state = MoviesState.failure(failure),
       (movies) => state = MoviesState.data(
         page: page,
         movies: movies,
@@ -30,7 +30,7 @@ class MoviesNotifier extends StateNotifier<MoviesState> {
     final moviesOrFailure = await _moviesRepository.searchMovies(page: 1, query: query);
 
     moviesOrFailure.fold(
-      (failure) => state = const MoviesState.error(),
+      (failure) => state = MoviesState.failure(failure),
       (movies) => state = MoviesState.data(
         page: 1,
         movies: movies,
