@@ -17,6 +17,12 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$FailureTearOff {
   const _$FailureTearOff();
 
+  _Generic generic(String message) {
+    return _Generic(
+      message,
+    );
+  }
+
   _NoNetwork noNetwork() {
     return const _NoNetwork();
   }
@@ -37,6 +43,7 @@ const $Failure = _$FailureTearOff();
 mixin _$Failure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String message) generic,
     required TResult Function() noNetwork,
     required TResult Function() unauthorized,
     required TResult Function() serverError,
@@ -44,6 +51,7 @@ mixin _$Failure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String message)? generic,
     TResult Function()? noNetwork,
     TResult Function()? unauthorized,
     TResult Function()? serverError,
@@ -51,6 +59,7 @@ mixin _$Failure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? generic,
     TResult Function()? noNetwork,
     TResult Function()? unauthorized,
     TResult Function()? serverError,
@@ -59,6 +68,7 @@ mixin _$Failure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Generic value) generic,
     required TResult Function(_NoNetwork value) noNetwork,
     required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_ServerError value) serverError,
@@ -66,6 +76,7 @@ mixin _$Failure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Generic value)? generic,
     TResult Function(_NoNetwork value)? noNetwork,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_ServerError value)? serverError,
@@ -73,6 +84,7 @@ mixin _$Failure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Generic value)? generic,
     TResult Function(_NoNetwork value)? noNetwork,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_ServerError value)? serverError,
@@ -94,6 +106,149 @@ class _$FailureCopyWithImpl<$Res> implements $FailureCopyWith<$Res> {
   final Failure _value;
   // ignore: unused_field
   final $Res Function(Failure) _then;
+}
+
+/// @nodoc
+abstract class _$GenericCopyWith<$Res> {
+  factory _$GenericCopyWith(_Generic value, $Res Function(_Generic) then) =
+      __$GenericCopyWithImpl<$Res>;
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$GenericCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
+    implements _$GenericCopyWith<$Res> {
+  __$GenericCopyWithImpl(_Generic _value, $Res Function(_Generic) _then)
+      : super(_value, (v) => _then(v as _Generic));
+
+  @override
+  _Generic get _value => super._value as _Generic;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_Generic(
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Generic implements _Generic {
+  const _$_Generic(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'Failure.generic(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Generic &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(other.message, message)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
+
+  @JsonKey(ignore: true)
+  @override
+  _$GenericCopyWith<_Generic> get copyWith =>
+      __$GenericCopyWithImpl<_Generic>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String message) generic,
+    required TResult Function() noNetwork,
+    required TResult Function() unauthorized,
+    required TResult Function() serverError,
+  }) {
+    return generic(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String message)? generic,
+    TResult Function()? noNetwork,
+    TResult Function()? unauthorized,
+    TResult Function()? serverError,
+  }) {
+    return generic?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? generic,
+    TResult Function()? noNetwork,
+    TResult Function()? unauthorized,
+    TResult Function()? serverError,
+    required TResult orElse(),
+  }) {
+    if (generic != null) {
+      return generic(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Generic value) generic,
+    required TResult Function(_NoNetwork value) noNetwork,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_ServerError value) serverError,
+  }) {
+    return generic(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Generic value)? generic,
+    TResult Function(_NoNetwork value)? noNetwork,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_ServerError value)? serverError,
+  }) {
+    return generic?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Generic value)? generic,
+    TResult Function(_NoNetwork value)? noNetwork,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_ServerError value)? serverError,
+    required TResult orElse(),
+  }) {
+    if (generic != null) {
+      return generic(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Generic implements Failure {
+  const factory _Generic(String message) = _$_Generic;
+
+  String get message => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$GenericCopyWith<_Generic> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -134,6 +289,7 @@ class _$_NoNetwork implements _NoNetwork {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String message) generic,
     required TResult Function() noNetwork,
     required TResult Function() unauthorized,
     required TResult Function() serverError,
@@ -144,6 +300,7 @@ class _$_NoNetwork implements _NoNetwork {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String message)? generic,
     TResult Function()? noNetwork,
     TResult Function()? unauthorized,
     TResult Function()? serverError,
@@ -154,6 +311,7 @@ class _$_NoNetwork implements _NoNetwork {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? generic,
     TResult Function()? noNetwork,
     TResult Function()? unauthorized,
     TResult Function()? serverError,
@@ -168,6 +326,7 @@ class _$_NoNetwork implements _NoNetwork {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Generic value) generic,
     required TResult Function(_NoNetwork value) noNetwork,
     required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_ServerError value) serverError,
@@ -178,6 +337,7 @@ class _$_NoNetwork implements _NoNetwork {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Generic value)? generic,
     TResult Function(_NoNetwork value)? noNetwork,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_ServerError value)? serverError,
@@ -188,6 +348,7 @@ class _$_NoNetwork implements _NoNetwork {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Generic value)? generic,
     TResult Function(_NoNetwork value)? noNetwork,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_ServerError value)? serverError,
@@ -243,6 +404,7 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String message) generic,
     required TResult Function() noNetwork,
     required TResult Function() unauthorized,
     required TResult Function() serverError,
@@ -253,6 +415,7 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String message)? generic,
     TResult Function()? noNetwork,
     TResult Function()? unauthorized,
     TResult Function()? serverError,
@@ -263,6 +426,7 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? generic,
     TResult Function()? noNetwork,
     TResult Function()? unauthorized,
     TResult Function()? serverError,
@@ -277,6 +441,7 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Generic value) generic,
     required TResult Function(_NoNetwork value) noNetwork,
     required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_ServerError value) serverError,
@@ -287,6 +452,7 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Generic value)? generic,
     TResult Function(_NoNetwork value)? noNetwork,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_ServerError value)? serverError,
@@ -297,6 +463,7 @@ class _$_Unauthorized implements _Unauthorized {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Generic value)? generic,
     TResult Function(_NoNetwork value)? noNetwork,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_ServerError value)? serverError,
@@ -352,6 +519,7 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String message) generic,
     required TResult Function() noNetwork,
     required TResult Function() unauthorized,
     required TResult Function() serverError,
@@ -362,6 +530,7 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String message)? generic,
     TResult Function()? noNetwork,
     TResult Function()? unauthorized,
     TResult Function()? serverError,
@@ -372,6 +541,7 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? generic,
     TResult Function()? noNetwork,
     TResult Function()? unauthorized,
     TResult Function()? serverError,
@@ -386,6 +556,7 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Generic value) generic,
     required TResult Function(_NoNetwork value) noNetwork,
     required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_ServerError value) serverError,
@@ -396,6 +567,7 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Generic value)? generic,
     TResult Function(_NoNetwork value)? noNetwork,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_ServerError value)? serverError,
@@ -406,6 +578,7 @@ class _$_ServerError implements _ServerError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Generic value)? generic,
     TResult Function(_NoNetwork value)? noNetwork,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_ServerError value)? serverError,
