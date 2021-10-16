@@ -24,7 +24,7 @@ class MoviesView extends StatelessWidget with FailureHandlingMixin {
       provider: moviesViewNotifierProvider,
       onChange: (context, moviesState) {
         if (moviesState is MoviesStateFailure) {
-          displayAppropriateMessage(
+          showSnackBarMessage(
             context: context,
             failure: moviesState.failure,
           );
@@ -45,11 +45,14 @@ class MoviesView extends StatelessWidget with FailureHandlingMixin {
                   return watch(moviesViewNotifierProvider).when(
                     initial: () => Container(),
                     loading: () => const Center(child: CircularProgressIndicator()),
-                    failure: (error) => Center(
-                      child: Text(
-                        error.toString(),
-                        style: Theme.of(context).textTheme.subtitle1,
-                        textAlign: TextAlign.center,
+                    failure: (failure) => Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          failure.toString(),
+                          style: Theme.of(context).textTheme.subtitle1,
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                     ),
                     data: (page, isLoadingNextPage, query, movies) {
