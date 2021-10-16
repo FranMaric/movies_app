@@ -8,7 +8,7 @@ part of 'movie.dart';
 
 _$_Movie _$$_MovieFromJson(Map<String, dynamic> json) => _$_Movie(
       id: json['id'] as int,
-      backdropPath: json['backdrop_path'] as String,
+      backdropPath: json['backdrop_path'] as String?,
       title: json['title'] as String,
     );
 
