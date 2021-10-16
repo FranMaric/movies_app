@@ -22,6 +22,9 @@ dependencies:
   # Data persistence
   shared_preferences: ^2.0.6
 
+  # Error handling
+  dartz: ^0.10.0
+
   # Networking
   dio: ^4.0.0
   alice: ^0.2.4
