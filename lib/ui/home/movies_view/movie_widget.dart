@@ -22,13 +22,20 @@ class MovieWidget extends StatelessWidget {
         child: GestureDetector(
           onTap: onTap,
           child: Stack(
+            alignment: Alignment.center,
             children: [
-              CachedNetworkImage(
-                imageUrl: imageUrl,
-                fit: BoxFit.cover,
-                height: MediaQuery.of(context).size.width * 0.9 * 0.55,
-                width: MediaQuery.of(context).size.width * 0.9,
-              ),
+              if (movie.backdropPath != null)
+                CachedNetworkImage(
+                  imageUrl: imageUrl,
+                  fit: BoxFit.cover,
+                  height: MediaQuery.of(context).size.width * 0.9 * 0.55,
+                  width: MediaQuery.of(context).size.width * 0.9,
+                ),
+              if (movie.backdropPath == null)
+                Text(
+                  'No image :(',
+                  style: Theme.of(context).textTheme.subtitle2,
+                ),
               Container(
                 height: MediaQuery.of(context).size.width * 0.9 * 0.55,
                 width: MediaQuery.of(context).size.width * 0.9,
