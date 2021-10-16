@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:movie_app/domain/failure.dart';
 import 'package:movie_app/domain/models/movie.dart';
 import 'package:movie_app/domain/repositories/movies_repository/movies_repository.dart';
@@ -23,6 +24,8 @@ class MoviesRepositoryImpl implements MoviesRepository {
       }
 
       return Left(Failure.fromResponse(response));
+    } on DioError catch (dioError) {
+      return Left(Failure.fromDioError(dioError));
     } catch (e) {
       return Left(Failure.generic(e.toString()));
     }
@@ -40,6 +43,8 @@ class MoviesRepositoryImpl implements MoviesRepository {
       }
 
       return Left(Failure.fromResponse(response));
+    } on DioError catch (dioError) {
+      return Left(Failure.fromDioError(dioError));
     } catch (e) {
       return Left(Failure.generic(e.toString()));
     }
