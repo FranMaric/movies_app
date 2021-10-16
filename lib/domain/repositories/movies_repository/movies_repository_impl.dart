@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:movie_app/domain/failure.dart';
+import 'package:movie_app/domain/models/failure.dart';
 import 'package:movie_app/domain/models/movie.dart';
 import 'package:movie_app/domain/repositories/movies_repository/movies_repository.dart';
 import 'package:movie_app/source_remote/api_repository/api_repository.dart';

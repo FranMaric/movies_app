@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/domain/failure.dart';
+import 'package:movie_app/domain/models/failure.dart';
 
 mixin FailureHandlingMixin on Widget {
   void showSnackBarMessage({
