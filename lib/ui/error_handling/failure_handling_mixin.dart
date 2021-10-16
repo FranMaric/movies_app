@@ -18,10 +18,10 @@ mixin FailureHandlingMixin on Widget {
   void displaySnackbar(BuildContext context, String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        duration: const Duration(seconds: 1),
+        duration: const Duration(seconds: 2),
         content: Text(
           message,
-          style: Theme.of(context).textTheme.headline2?.copyWith(color: Colors.white),
+          style: Theme.of(context).textTheme.headline6?.copyWith(color: Colors.white),
         ),
       ),
     );
