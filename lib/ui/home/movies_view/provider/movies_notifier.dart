@@ -6,13 +6,14 @@ class MoviesNotifier extends StateNotifier<MoviesState> {
   MoviesNotifier({required MoviesRepository moviesRepository})
       : _moviesRepository = moviesRepository,
         super(const MoviesState.initial()) {
-    state = const MoviesState.loading();
     _getTopRatedMovies(page: 1);
   }
 
   final MoviesRepository _moviesRepository;
 
   void _getTopRatedMovies({required int page}) async {
+    state = const MoviesState.loading();
+
     final moviesOrFailure = await _moviesRepository.getTopRatedMovies(page: page);
 
     moviesOrFailure.fold(
