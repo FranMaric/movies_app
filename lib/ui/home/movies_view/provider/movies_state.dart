@@ -3,10 +3,6 @@ import 'package:movie_app/domain/models/movie.dart';
 
 part 'movies_state.freezed.dart';
 
-extension MoviesGetters on MoviesState {
-  bool get isLoading => this is _MoviesStateLoading;
-}
-
 @freezed
 abstract class MoviesState with _$MoviesState {
   const factory MoviesState.initial() = _MoviesStateInitial;
