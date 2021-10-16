@@ -25,6 +25,8 @@ class MoviesNotifier extends StateNotifier<MoviesState> {
   }
 
   void onSearch(String query) async {
+    if (query.isEmpty) return;
+
     state = const MoviesState.loading();
 
     final moviesOrFailure = await _moviesRepository.searchMovies(page: 1, query: query);
