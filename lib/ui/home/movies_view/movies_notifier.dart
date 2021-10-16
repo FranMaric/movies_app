@@ -49,11 +49,7 @@ class MoviesNotifier extends StateNotifier<MoviesState> {
           : await _moviesRepository.searchMovies(page: nextPage, query: (state as MoviesStateData).query!);
 
       moviesOrFailure.fold(
-        (failure) {
-          print(failure);
-
-          return state = (state as MoviesStateData).copyWith(isloadingNextPage: false);
-        },
+        (failure) => state = (state as MoviesStateData).copyWith(isloadingNextPage: false),
         (movies) => state = MoviesState.data(
           page: nextPage,
           query: (state as MoviesStateData).query,
