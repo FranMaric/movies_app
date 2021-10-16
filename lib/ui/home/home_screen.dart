@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
         selectedItemColor: Theme.of(context).primaryColor,
         onTap: _onItemTapped,
       ),
-      body: const <Widget>[
+      body: <Widget>[
         MoviesView(),
         ActorsView(),
       ].elementAt(_selectedIndex),
