@@ -38,9 +38,9 @@ class _$MoviesStateTearOff {
     );
   }
 
-  _MoviesStateError error([String? error]) {
-    return _MoviesStateError(
-      error,
+  MoviesStateFailure failure(Failure failure) {
+    return MoviesStateFailure(
+      failure,
     );
   }
 }
@@ -57,7 +57,7 @@ mixin _$MoviesState {
     required TResult Function(
             int page, bool isloadingNextPage, String? query, List<Movie> movies)
         data,
-    required TResult Function(String? error) error,
+    required TResult Function(Failure failure) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,7 +67,7 @@ mixin _$MoviesState {
     TResult Function(int page, bool isloadingNextPage, String? query,
             List<Movie> movies)?
         data,
-    TResult Function(String? error)? error,
+    TResult Function(Failure failure)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,7 +77,7 @@ mixin _$MoviesState {
     TResult Function(int page, bool isloadingNextPage, String? query,
             List<Movie> movies)?
         data,
-    TResult Function(String? error)? error,
+    TResult Function(Failure failure)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -86,7 +86,7 @@ mixin _$MoviesState {
     required TResult Function(_MoviesStateInitial value) initial,
     required TResult Function(_MoviesStateLoading value) loading,
     required TResult Function(MoviesStateData value) data,
-    required TResult Function(_MoviesStateError value) error,
+    required TResult Function(MoviesStateFailure value) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -94,7 +94,7 @@ mixin _$MoviesState {
     TResult Function(_MoviesStateInitial value)? initial,
     TResult Function(_MoviesStateLoading value)? loading,
     TResult Function(MoviesStateData value)? data,
-    TResult Function(_MoviesStateError value)? error,
+    TResult Function(MoviesStateFailure value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -102,7 +102,7 @@ mixin _$MoviesState {
     TResult Function(_MoviesStateInitial value)? initial,
     TResult Function(_MoviesStateLoading value)? loading,
     TResult Function(MoviesStateData value)? data,
-    TResult Function(_MoviesStateError value)? error,
+    TResult Function(MoviesStateFailure value)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -169,7 +169,7 @@ class _$_MoviesStateInitial implements _MoviesStateInitial {
     required TResult Function(
             int page, bool isloadingNextPage, String? query, List<Movie> movies)
         data,
-    required TResult Function(String? error) error,
+    required TResult Function(Failure failure) failure,
   }) {
     return initial();
   }
@@ -182,7 +182,7 @@ class _$_MoviesStateInitial implements _MoviesStateInitial {
     TResult Function(int page, bool isloadingNextPage, String? query,
             List<Movie> movies)?
         data,
-    TResult Function(String? error)? error,
+    TResult Function(Failure failure)? failure,
   }) {
     return initial?.call();
   }
@@ -195,7 +195,7 @@ class _$_MoviesStateInitial implements _MoviesStateInitial {
     TResult Function(int page, bool isloadingNextPage, String? query,
             List<Movie> movies)?
         data,
-    TResult Function(String? error)? error,
+    TResult Function(Failure failure)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -210,7 +210,7 @@ class _$_MoviesStateInitial implements _MoviesStateInitial {
     required TResult Function(_MoviesStateInitial value) initial,
     required TResult Function(_MoviesStateLoading value) loading,
     required TResult Function(MoviesStateData value) data,
-    required TResult Function(_MoviesStateError value) error,
+    required TResult Function(MoviesStateFailure value) failure,
   }) {
     return initial(this);
   }
@@ -221,7 +221,7 @@ class _$_MoviesStateInitial implements _MoviesStateInitial {
     TResult Function(_MoviesStateInitial value)? initial,
     TResult Function(_MoviesStateLoading value)? loading,
     TResult Function(MoviesStateData value)? data,
-    TResult Function(_MoviesStateError value)? error,
+    TResult Function(MoviesStateFailure value)? failure,
   }) {
     return initial?.call(this);
   }
@@ -232,7 +232,7 @@ class _$_MoviesStateInitial implements _MoviesStateInitial {
     TResult Function(_MoviesStateInitial value)? initial,
     TResult Function(_MoviesStateLoading value)? loading,
     TResult Function(MoviesStateData value)? data,
-    TResult Function(_MoviesStateError value)? error,
+    TResult Function(MoviesStateFailure value)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -291,7 +291,7 @@ class _$_MoviesStateLoading implements _MoviesStateLoading {
     required TResult Function(
             int page, bool isloadingNextPage, String? query, List<Movie> movies)
         data,
-    required TResult Function(String? error) error,
+    required TResult Function(Failure failure) failure,
   }) {
     return loading();
   }
@@ -304,7 +304,7 @@ class _$_MoviesStateLoading implements _MoviesStateLoading {
     TResult Function(int page, bool isloadingNextPage, String? query,
             List<Movie> movies)?
         data,
-    TResult Function(String? error)? error,
+    TResult Function(Failure failure)? failure,
   }) {
     return loading?.call();
   }
@@ -317,7 +317,7 @@ class _$_MoviesStateLoading implements _MoviesStateLoading {
     TResult Function(int page, bool isloadingNextPage, String? query,
             List<Movie> movies)?
         data,
-    TResult Function(String? error)? error,
+    TResult Function(Failure failure)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -332,7 +332,7 @@ class _$_MoviesStateLoading implements _MoviesStateLoading {
     required TResult Function(_MoviesStateInitial value) initial,
     required TResult Function(_MoviesStateLoading value) loading,
     required TResult Function(MoviesStateData value) data,
-    required TResult Function(_MoviesStateError value) error,
+    required TResult Function(MoviesStateFailure value) failure,
   }) {
     return loading(this);
   }
@@ -343,7 +343,7 @@ class _$_MoviesStateLoading implements _MoviesStateLoading {
     TResult Function(_MoviesStateInitial value)? initial,
     TResult Function(_MoviesStateLoading value)? loading,
     TResult Function(MoviesStateData value)? data,
-    TResult Function(_MoviesStateError value)? error,
+    TResult Function(MoviesStateFailure value)? failure,
   }) {
     return loading?.call(this);
   }
@@ -354,7 +354,7 @@ class _$_MoviesStateLoading implements _MoviesStateLoading {
     TResult Function(_MoviesStateInitial value)? initial,
     TResult Function(_MoviesStateLoading value)? loading,
     TResult Function(MoviesStateData value)? data,
-    TResult Function(_MoviesStateError value)? error,
+    TResult Function(MoviesStateFailure value)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -476,7 +476,7 @@ class _$MoviesStateData implements MoviesStateData {
     required TResult Function(
             int page, bool isloadingNextPage, String? query, List<Movie> movies)
         data,
-    required TResult Function(String? error) error,
+    required TResult Function(Failure failure) failure,
   }) {
     return data(page, isloadingNextPage, query, movies);
   }
@@ -489,7 +489,7 @@ class _$MoviesStateData implements MoviesStateData {
     TResult Function(int page, bool isloadingNextPage, String? query,
             List<Movie> movies)?
         data,
-    TResult Function(String? error)? error,
+    TResult Function(Failure failure)? failure,
   }) {
     return data?.call(page, isloadingNextPage, query, movies);
   }
@@ -502,7 +502,7 @@ class _$MoviesStateData implements MoviesStateData {
     TResult Function(int page, bool isloadingNextPage, String? query,
             List<Movie> movies)?
         data,
-    TResult Function(String? error)? error,
+    TResult Function(Failure failure)? failure,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -517,7 +517,7 @@ class _$MoviesStateData implements MoviesStateData {
     required TResult Function(_MoviesStateInitial value) initial,
     required TResult Function(_MoviesStateLoading value) loading,
     required TResult Function(MoviesStateData value) data,
-    required TResult Function(_MoviesStateError value) error,
+    required TResult Function(MoviesStateFailure value) failure,
   }) {
     return data(this);
   }
@@ -528,7 +528,7 @@ class _$MoviesStateData implements MoviesStateData {
     TResult Function(_MoviesStateInitial value)? initial,
     TResult Function(_MoviesStateLoading value)? loading,
     TResult Function(MoviesStateData value)? data,
-    TResult Function(_MoviesStateError value)? error,
+    TResult Function(MoviesStateFailure value)? failure,
   }) {
     return data?.call(this);
   }
@@ -539,7 +539,7 @@ class _$MoviesStateData implements MoviesStateData {
     TResult Function(_MoviesStateInitial value)? initial,
     TResult Function(_MoviesStateLoading value)? loading,
     TResult Function(MoviesStateData value)? data,
-    TResult Function(_MoviesStateError value)? error,
+    TResult Function(MoviesStateFailure value)? failure,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -566,66 +566,75 @@ abstract class MoviesStateData implements MoviesState {
 }
 
 /// @nodoc
-abstract class _$MoviesStateErrorCopyWith<$Res> {
-  factory _$MoviesStateErrorCopyWith(
-          _MoviesStateError value, $Res Function(_MoviesStateError) then) =
-      __$MoviesStateErrorCopyWithImpl<$Res>;
-  $Res call({String? error});
+abstract class $MoviesStateFailureCopyWith<$Res> {
+  factory $MoviesStateFailureCopyWith(
+          MoviesStateFailure value, $Res Function(MoviesStateFailure) then) =
+      _$MoviesStateFailureCopyWithImpl<$Res>;
+  $Res call({Failure failure});
+
+  $FailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class __$MoviesStateErrorCopyWithImpl<$Res>
+class _$MoviesStateFailureCopyWithImpl<$Res>
     extends _$MoviesStateCopyWithImpl<$Res>
-    implements _$MoviesStateErrorCopyWith<$Res> {
-  __$MoviesStateErrorCopyWithImpl(
-      _MoviesStateError _value, $Res Function(_MoviesStateError) _then)
-      : super(_value, (v) => _then(v as _MoviesStateError));
+    implements $MoviesStateFailureCopyWith<$Res> {
+  _$MoviesStateFailureCopyWithImpl(
+      MoviesStateFailure _value, $Res Function(MoviesStateFailure) _then)
+      : super(_value, (v) => _then(v as MoviesStateFailure));
 
   @override
-  _MoviesStateError get _value => super._value as _MoviesStateError;
+  MoviesStateFailure get _value => super._value as MoviesStateFailure;
 
   @override
   $Res call({
-    Object? error = freezed,
+    Object? failure = freezed,
   }) {
-    return _then(_MoviesStateError(
-      error == freezed
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String?,
+    return _then(MoviesStateFailure(
+      failure == freezed
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Failure,
     ));
+  }
+
+  @override
+  $FailureCopyWith<$Res> get failure {
+    return $FailureCopyWith<$Res>(_value.failure, (value) {
+      return _then(_value.copyWith(failure: value));
+    });
   }
 }
 
 /// @nodoc
 
-class _$_MoviesStateError implements _MoviesStateError {
-  const _$_MoviesStateError([this.error]);
+class _$MoviesStateFailure implements MoviesStateFailure {
+  const _$MoviesStateFailure(this.failure);
 
   @override
-  final String? error;
+  final Failure failure;
 
   @override
   String toString() {
-    return 'MoviesState.error(error: $error)';
+    return 'MoviesState.failure(failure: $failure)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _MoviesStateError &&
-            (identical(other.error, error) ||
-                const DeepCollectionEquality().equals(other.error, error)));
+        (other is MoviesStateFailure &&
+            (identical(other.failure, failure) ||
+                const DeepCollectionEquality().equals(other.failure, failure)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
 
   @JsonKey(ignore: true)
   @override
-  _$MoviesStateErrorCopyWith<_MoviesStateError> get copyWith =>
-      __$MoviesStateErrorCopyWithImpl<_MoviesStateError>(this, _$identity);
+  $MoviesStateFailureCopyWith<MoviesStateFailure> get copyWith =>
+      _$MoviesStateFailureCopyWithImpl<MoviesStateFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -635,9 +644,9 @@ class _$_MoviesStateError implements _MoviesStateError {
     required TResult Function(
             int page, bool isloadingNextPage, String? query, List<Movie> movies)
         data,
-    required TResult Function(String? error) error,
+    required TResult Function(Failure failure) failure,
   }) {
-    return error(this.error);
+    return failure(this.failure);
   }
 
   @override
@@ -648,9 +657,9 @@ class _$_MoviesStateError implements _MoviesStateError {
     TResult Function(int page, bool isloadingNextPage, String? query,
             List<Movie> movies)?
         data,
-    TResult Function(String? error)? error,
+    TResult Function(Failure failure)? failure,
   }) {
-    return error?.call(this.error);
+    return failure?.call(this.failure);
   }
 
   @override
@@ -661,11 +670,11 @@ class _$_MoviesStateError implements _MoviesStateError {
     TResult Function(int page, bool isloadingNextPage, String? query,
             List<Movie> movies)?
         data,
-    TResult Function(String? error)? error,
+    TResult Function(Failure failure)? failure,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(this.error);
+    if (failure != null) {
+      return failure(this.failure);
     }
     return orElse();
   }
@@ -676,9 +685,9 @@ class _$_MoviesStateError implements _MoviesStateError {
     required TResult Function(_MoviesStateInitial value) initial,
     required TResult Function(_MoviesStateLoading value) loading,
     required TResult Function(MoviesStateData value) data,
-    required TResult Function(_MoviesStateError value) error,
+    required TResult Function(MoviesStateFailure value) failure,
   }) {
-    return error(this);
+    return failure(this);
   }
 
   @override
@@ -687,9 +696,9 @@ class _$_MoviesStateError implements _MoviesStateError {
     TResult Function(_MoviesStateInitial value)? initial,
     TResult Function(_MoviesStateLoading value)? loading,
     TResult Function(MoviesStateData value)? data,
-    TResult Function(_MoviesStateError value)? error,
+    TResult Function(MoviesStateFailure value)? failure,
   }) {
-    return error?.call(this);
+    return failure?.call(this);
   }
 
   @override
@@ -698,21 +707,21 @@ class _$_MoviesStateError implements _MoviesStateError {
     TResult Function(_MoviesStateInitial value)? initial,
     TResult Function(_MoviesStateLoading value)? loading,
     TResult Function(MoviesStateData value)? data,
-    TResult Function(_MoviesStateError value)? error,
+    TResult Function(MoviesStateFailure value)? failure,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(this);
+    if (failure != null) {
+      return failure(this);
     }
     return orElse();
   }
 }
 
-abstract class _MoviesStateError implements MoviesState {
-  const factory _MoviesStateError([String? error]) = _$_MoviesStateError;
+abstract class MoviesStateFailure implements MoviesState {
+  const factory MoviesStateFailure(Failure failure) = _$MoviesStateFailure;
 
-  String? get error => throw _privateConstructorUsedError;
+  Failure get failure => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$MoviesStateErrorCopyWith<_MoviesStateError> get copyWith =>
+  $MoviesStateFailureCopyWith<MoviesStateFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }

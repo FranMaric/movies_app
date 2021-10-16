@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:movie_app/domain/failure.dart';
 import 'package:movie_app/domain/models/movie.dart';
 
 part 'movies_state.freezed.dart';
@@ -16,5 +17,5 @@ abstract class MoviesState with _$MoviesState {
     required List<Movie> movies,
   }) = MoviesStateData;
 
-  const factory MoviesState.error([String? error]) = _MoviesStateError;
+  const factory MoviesState.failure(Failure failure) = MoviesStateFailure;
 }
