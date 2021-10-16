@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:movie_app/domain/repositories/movies_repository/movies_repository.dart';
-import 'package:movie_app/ui/home/movies_view/movies_state.dart';
+import 'package:movie_app/ui/home/movies_view/provider/movies_state.dart';
 
 class MoviesNotifier extends StateNotifier<MoviesState> {
   MoviesNotifier({required MoviesRepository moviesRepository})

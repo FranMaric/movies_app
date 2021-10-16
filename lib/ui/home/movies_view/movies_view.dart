@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:movie_app/ui/common/stateful_wrapper.dart';
 import 'package:movie_app/ui/home/movies_view/movie_widget.dart';
-import 'package:movie_app/ui/home/movies_view/movies_notifier_provider.dart';
+import 'package:movie_app/ui/home/movies_view/provider/movies_notifier_provider.dart';
 import 'package:movie_app/ui/home/widgets/search_bar.dart';
 
 class MoviesView extends StatelessWidget {
