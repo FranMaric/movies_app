@@ -26,9 +26,13 @@ class _$MoviesStateTearOff {
   }
 
   MoviesStateData data(
-      {required int page, String? query, required List<Movie> movies}) {
+      {required int page,
+      bool isloadingNextPage = false,
+      String? query,
+      required List<Movie> movies}) {
     return MoviesStateData(
       page: page,
+      isloadingNextPage: isloadingNextPage,
       query: query,
       movies: movies,
     );
@@ -50,7 +54,9 @@ mixin _$MoviesState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(int page, String? query, List<Movie> movies) data,
+    required TResult Function(
+            int page, bool isloadingNextPage, String? query, List<Movie> movies)
+        data,
     required TResult Function(String? error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -58,7 +64,9 @@ mixin _$MoviesState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int page, String? query, List<Movie> movies)? data,
+    TResult Function(int page, bool isloadingNextPage, String? query,
+            List<Movie> movies)?
+        data,
     TResult Function(String? error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -66,7 +74,9 @@ mixin _$MoviesState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int page, String? query, List<Movie> movies)? data,
+    TResult Function(int page, bool isloadingNextPage, String? query,
+            List<Movie> movies)?
+        data,
     TResult Function(String? error)? error,
     required TResult orElse(),
   }) =>
@@ -156,7 +166,9 @@ class _$_MoviesStateInitial implements _MoviesStateInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(int page, String? query, List<Movie> movies) data,
+    required TResult Function(
+            int page, bool isloadingNextPage, String? query, List<Movie> movies)
+        data,
     required TResult Function(String? error) error,
   }) {
     return initial();
@@ -167,7 +179,9 @@ class _$_MoviesStateInitial implements _MoviesStateInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int page, String? query, List<Movie> movies)? data,
+    TResult Function(int page, bool isloadingNextPage, String? query,
+            List<Movie> movies)?
+        data,
     TResult Function(String? error)? error,
   }) {
     return initial?.call();
@@ -178,7 +192,9 @@ class _$_MoviesStateInitial implements _MoviesStateInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int page, String? query, List<Movie> movies)? data,
+    TResult Function(int page, bool isloadingNextPage, String? query,
+            List<Movie> movies)?
+        data,
     TResult Function(String? error)? error,
     required TResult orElse(),
   }) {
@@ -272,7 +288,9 @@ class _$_MoviesStateLoading implements _MoviesStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(int page, String? query, List<Movie> movies) data,
+    required TResult Function(
+            int page, bool isloadingNextPage, String? query, List<Movie> movies)
+        data,
     required TResult Function(String? error) error,
   }) {
     return loading();
@@ -283,7 +301,9 @@ class _$_MoviesStateLoading implements _MoviesStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int page, String? query, List<Movie> movies)? data,
+    TResult Function(int page, bool isloadingNextPage, String? query,
+            List<Movie> movies)?
+        data,
     TResult Function(String? error)? error,
   }) {
     return loading?.call();
@@ -294,7 +314,9 @@ class _$_MoviesStateLoading implements _MoviesStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int page, String? query, List<Movie> movies)? data,
+    TResult Function(int page, bool isloadingNextPage, String? query,
+            List<Movie> movies)?
+        data,
     TResult Function(String? error)? error,
     required TResult orElse(),
   }) {
@@ -351,7 +373,8 @@ abstract class $MoviesStateDataCopyWith<$Res> {
   factory $MoviesStateDataCopyWith(
           MoviesStateData value, $Res Function(MoviesStateData) then) =
       _$MoviesStateDataCopyWithImpl<$Res>;
-  $Res call({int page, String? query, List<Movie> movies});
+  $Res call(
+      {int page, bool isloadingNextPage, String? query, List<Movie> movies});
 }
 
 /// @nodoc
@@ -368,6 +391,7 @@ class _$MoviesStateDataCopyWithImpl<$Res>
   @override
   $Res call({
     Object? page = freezed,
+    Object? isloadingNextPage = freezed,
     Object? query = freezed,
     Object? movies = freezed,
   }) {
@@ -376,6 +400,10 @@ class _$MoviesStateDataCopyWithImpl<$Res>
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
+      isloadingNextPage: isloadingNextPage == freezed
+          ? _value.isloadingNextPage
+          : isloadingNextPage // ignore: cast_nullable_to_non_nullable
+              as bool,
       query: query == freezed
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -392,10 +420,16 @@ class _$MoviesStateDataCopyWithImpl<$Res>
 
 class _$MoviesStateData implements MoviesStateData {
   const _$MoviesStateData(
-      {required this.page, this.query, required this.movies});
+      {required this.page,
+      this.isloadingNextPage = false,
+      this.query,
+      required this.movies});
 
   @override
   final int page;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool isloadingNextPage;
   @override
   final String? query;
   @override
@@ -403,7 +437,7 @@ class _$MoviesStateData implements MoviesStateData {
 
   @override
   String toString() {
-    return 'MoviesState.data(page: $page, query: $query, movies: $movies)';
+    return 'MoviesState.data(page: $page, isloadingNextPage: $isloadingNextPage, query: $query, movies: $movies)';
   }
 
   @override
@@ -412,6 +446,9 @@ class _$MoviesStateData implements MoviesStateData {
         (other is MoviesStateData &&
             (identical(other.page, page) ||
                 const DeepCollectionEquality().equals(other.page, page)) &&
+            (identical(other.isloadingNextPage, isloadingNextPage) ||
+                const DeepCollectionEquality()
+                    .equals(other.isloadingNextPage, isloadingNextPage)) &&
             (identical(other.query, query) ||
                 const DeepCollectionEquality().equals(other.query, query)) &&
             (identical(other.movies, movies) ||
@@ -422,6 +459,7 @@ class _$MoviesStateData implements MoviesStateData {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(page) ^
+      const DeepCollectionEquality().hash(isloadingNextPage) ^
       const DeepCollectionEquality().hash(query) ^
       const DeepCollectionEquality().hash(movies);
 
@@ -435,10 +473,12 @@ class _$MoviesStateData implements MoviesStateData {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(int page, String? query, List<Movie> movies) data,
+    required TResult Function(
+            int page, bool isloadingNextPage, String? query, List<Movie> movies)
+        data,
     required TResult Function(String? error) error,
   }) {
-    return data(page, query, movies);
+    return data(page, isloadingNextPage, query, movies);
   }
 
   @override
@@ -446,10 +486,12 @@ class _$MoviesStateData implements MoviesStateData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int page, String? query, List<Movie> movies)? data,
+    TResult Function(int page, bool isloadingNextPage, String? query,
+            List<Movie> movies)?
+        data,
     TResult Function(String? error)? error,
   }) {
-    return data?.call(page, query, movies);
+    return data?.call(page, isloadingNextPage, query, movies);
   }
 
   @override
@@ -457,12 +499,14 @@ class _$MoviesStateData implements MoviesStateData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int page, String? query, List<Movie> movies)? data,
+    TResult Function(int page, bool isloadingNextPage, String? query,
+            List<Movie> movies)?
+        data,
     TResult Function(String? error)? error,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(page, query, movies);
+      return data(page, isloadingNextPage, query, movies);
     }
     return orElse();
   }
@@ -508,10 +552,12 @@ class _$MoviesStateData implements MoviesStateData {
 abstract class MoviesStateData implements MoviesState {
   const factory MoviesStateData(
       {required int page,
+      bool isloadingNextPage,
       String? query,
       required List<Movie> movies}) = _$MoviesStateData;
 
   int get page => throw _privateConstructorUsedError;
+  bool get isloadingNextPage => throw _privateConstructorUsedError;
   String? get query => throw _privateConstructorUsedError;
   List<Movie> get movies => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -586,7 +632,9 @@ class _$_MoviesStateError implements _MoviesStateError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(int page, String? query, List<Movie> movies) data,
+    required TResult Function(
+            int page, bool isloadingNextPage, String? query, List<Movie> movies)
+        data,
     required TResult Function(String? error) error,
   }) {
     return error(this.error);
@@ -597,7 +645,9 @@ class _$_MoviesStateError implements _MoviesStateError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int page, String? query, List<Movie> movies)? data,
+    TResult Function(int page, bool isloadingNextPage, String? query,
+            List<Movie> movies)?
+        data,
     TResult Function(String? error)? error,
   }) {
     return error?.call(this.error);
@@ -608,7 +658,9 @@ class _$_MoviesStateError implements _MoviesStateError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int page, String? query, List<Movie> movies)? data,
+    TResult Function(int page, bool isloadingNextPage, String? query,
+            List<Movie> movies)?
+        data,
     TResult Function(String? error)? error,
     required TResult orElse(),
   }) {

@@ -13,7 +13,12 @@ abstract class MoviesState with _$MoviesState {
 
   const factory MoviesState.loading() = _MoviesStateLoading;
 
-  const factory MoviesState.data({required int page, String? query, required List<Movie> movies}) = MoviesStateData;
+  const factory MoviesState.data({
+    required int page,
+    @Default(false) bool isloadingNextPage,
+    String? query,
+    required List<Movie> movies,
+  }) = MoviesStateData;
 
   const factory MoviesState.error([String? error]) = _MoviesStateError;
 }
