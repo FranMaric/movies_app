@@ -139,16 +139,11 @@ class __$GenericCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Generic implements _Generic {
-  const _$_Generic(this.message);
+class _$_Generic extends _Generic {
+  const _$_Generic(this.message) : super._();
 
   @override
   final String message;
-
-  @override
-  String toString() {
-    return 'Failure.generic(message: $message)';
-  }
 
   @override
   bool operator ==(dynamic other) {
@@ -242,8 +237,9 @@ class _$_Generic implements _Generic {
   }
 }
 
-abstract class _Generic implements Failure {
+abstract class _Generic extends Failure {
   const factory _Generic(String message) = _$_Generic;
+  const _Generic._() : super._();
 
   String get message => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -270,13 +266,8 @@ class __$NoNetworkCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NoNetwork implements _NoNetwork {
-  const _$_NoNetwork();
-
-  @override
-  String toString() {
-    return 'Failure.noNetwork()';
-  }
+class _$_NoNetwork extends _NoNetwork {
+  const _$_NoNetwork() : super._();
 
   @override
   bool operator ==(dynamic other) {
@@ -361,8 +352,9 @@ class _$_NoNetwork implements _NoNetwork {
   }
 }
 
-abstract class _NoNetwork implements Failure {
+abstract class _NoNetwork extends Failure {
   const factory _NoNetwork() = _$_NoNetwork;
+  const _NoNetwork._() : super._();
 }
 
 /// @nodoc
@@ -385,13 +377,8 @@ class __$UnauthorizedCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Unauthorized implements _Unauthorized {
-  const _$_Unauthorized();
-
-  @override
-  String toString() {
-    return 'Failure.unauthorized()';
-  }
+class _$_Unauthorized extends _Unauthorized {
+  const _$_Unauthorized() : super._();
 
   @override
   bool operator ==(dynamic other) {
@@ -476,8 +463,9 @@ class _$_Unauthorized implements _Unauthorized {
   }
 }
 
-abstract class _Unauthorized implements Failure {
+abstract class _Unauthorized extends Failure {
   const factory _Unauthorized() = _$_Unauthorized;
+  const _Unauthorized._() : super._();
 }
 
 /// @nodoc
@@ -500,13 +488,8 @@ class __$ServerErrorCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ServerError implements _ServerError {
-  const _$_ServerError();
-
-  @override
-  String toString() {
-    return 'Failure.serverError()';
-  }
+class _$_ServerError extends _ServerError {
+  const _$_ServerError() : super._();
 
   @override
   bool operator ==(dynamic other) {
@@ -591,6 +574,7 @@ class _$_ServerError implements _ServerError {
   }
 }
 
-abstract class _ServerError implements Failure {
+abstract class _ServerError extends Failure {
   const factory _ServerError() = _$_ServerError;
+  const _ServerError._() : super._();
 }
