@@ -1,11 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 part 'actor.freezed.dart';
 part 'actor.g.dart';
 
 @freezed
-@immutable
 class Actor with _$Actor {
   const factory Actor({
     required bool adult,
