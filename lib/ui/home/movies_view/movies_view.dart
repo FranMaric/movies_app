@@ -1,49 +1,73 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:movie_app/ui/common/stateful_wrapper.dart';
 import 'package:movie_app/ui/home/movies_view/movie_widget.dart';
 import 'package:movie_app/ui/home/movies_view/movies_notifier_provider.dart';
 import 'package:movie_app/ui/home/widgets/search_bar.dart';
 
 class MoviesView extends StatelessWidget {
-  const MoviesView({Key? key}) : super(key: key);
+  MoviesView({Key? key}) : super(key: key);
+
+  final scrollController = ScrollController(keepScrollOffset: true);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SearchBar(
-          hintText: 'Search movies',
-          onSearch: context.read(moviesViewNotifierProvider.notifier).onSearch,
-        ),
-        Expanded(
-          child: Consumer(
-            builder: (context, watch, child) {
-              return watch(moviesViewNotifierProvider).when(
-                initial: () => Container(),
-                loading: () => const Center(child: CircularProgressIndicator()),
-                error: (error) => Center(
-                  child: Text(
-                    error.toString(),
-                    style: Theme.of(context).textTheme.subtitle1,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                data: (page, query, movies) {
-                  return ListView.builder(
-                    itemCount: movies.length,
-                    itemBuilder: (context, index) => MovieWidget(
-                      movie: movies[index],
-                      onTap: () {
-                        //TODO: Navigate to details
-                      },
-                    ),
-                  );
-                },
-              );
-            },
+    void scrollControllerListener() {
+      if (scrollController.position.pixels + 50 > scrollController.position.maxScrollExtent) {
+        context.read(moviesViewNotifierProvider.notifier).onNextPage();
+      }
+    }
+
+    return StatefulWrapper(
+      initState: () => scrollController.addListener(scrollControllerListener),
+      dispose: () => scrollController.removeListener(scrollControllerListener),
+      child: Column(
+        children: [
+          SearchBar(
+            hintText: 'Search movies',
+            onSearch: context.read(moviesViewNotifierProvider.notifier).onSearch,
           ),
-        ),
-      ],
+          Expanded(
+            child: Consumer(
+              builder: (context, watch, child) {
+                return watch(moviesViewNotifierProvider).when(
+                  initial: () => Container(),
+                  loading: () => const Center(child: CircularProgressIndicator()),
+                  error: (error) => Center(
+                    child: Text(
+                      error.toString(),
+                      style: Theme.of(context).textTheme.subtitle1,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  data: (page, isLoadingNextPage, query, movies) {
+                    return ListView.builder(
+                        controller: scrollController,
+                        itemCount: movies.length + (isLoadingNextPage ? 1 : 0),
+                        itemBuilder: (context, index) {
+                          if (index < movies.length) {
+                            return MovieWidget(
+                              movie: movies[index],
+                              onTap: () {
+                                //TODO: Navigate to details
+                              },
+                            );
+                          }
+
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: CircularProgressIndicator(
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          );
+                        });
+                  },
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

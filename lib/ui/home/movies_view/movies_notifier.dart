@@ -13,30 +13,52 @@ class MoviesNotifier extends StateNotifier<MoviesState> {
   final MoviesRepository _moviesRepository;
 
   void _getTopRatedMovies({required int page}) async {
-    state = MoviesState.data(
-      page: page,
-      movies: await _moviesRepository.getTopRatedMovies(page: page),
+    final moviesOrFailure = await _moviesRepository.getTopRatedMovies(page: page);
+
+    moviesOrFailure.fold(
+      (failure) => null,
+      (movies) => state = MoviesState.data(
+        page: page,
+        movies: movies,
+      ),
     );
   }
 
   void onSearch(String query) async {
-    state = MoviesState.data(
-      page: 1,
-      movies: await _moviesRepository.searchMovies(page: 1, query: query),
+    state = const MoviesState.loading();
+
+    final moviesOrFailure = await _moviesRepository.searchMovies(page: 1, query: query);
+
+    moviesOrFailure.fold(
+      (failure) => state = const MoviesState.error(),
+      (movies) => state = MoviesState.data(
+        page: 1,
+        movies: movies,
+      ),
     );
   }
 
   void onNextPage() async {
-    if (state is MoviesStateData) {
+    if (state is MoviesStateData && !(state as MoviesStateData).isloadingNextPage) {
+      state = (state as MoviesStateData).copyWith(isloadingNextPage: true);
+
       final nextPage = (state as MoviesStateData).page + 1;
 
-      final movies = (state as MoviesStateData).query == null
+      final moviesOrFailure = (state as MoviesStateData).query == null
           ? await _moviesRepository.getTopRatedMovies(page: nextPage)
           : await _moviesRepository.searchMovies(page: nextPage, query: (state as MoviesStateData).query!);
 
-      state = MoviesState.data(
-        page: nextPage,
-        movies: movies,
+      moviesOrFailure.fold(
+        (failure) {
+          print(failure);
+
+          return state = (state as MoviesStateData).copyWith(isloadingNextPage: false);
+        },
+        (movies) => state = MoviesState.data(
+          page: nextPage,
+          query: (state as MoviesStateData).query,
+          movies: [...(state as MoviesStateData).movies, ...movies],
+        ),
       );
     }
   }
