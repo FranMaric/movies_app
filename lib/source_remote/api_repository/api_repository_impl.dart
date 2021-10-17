@@ -73,7 +73,7 @@ class ApiRepositoryImpl implements ApiRepository {
   }
 
   @override
-  Future<Response<dynamic>> searchActors({required String query, required int page}) async {
+  Future<Response> searchActors({required String query, required int page}) async {
     return _dio.get(
       '/search/person',
       queryParameters: <String, dynamic>{
