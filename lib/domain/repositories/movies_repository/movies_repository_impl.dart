@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:movie_app/domain/models/failure.dart';
 import 'package:movie_app/domain/models/movie.dart';
+import 'package:movie_app/domain/models/movie_credits.dart';
+import 'package:movie_app/domain/models/movie_details.dart';
 import 'package:movie_app/domain/repositories/movies_repository/movies_repository.dart';
 import 'package:movie_app/source_remote/api_repository/api_repository.dart';
 import 'package:movie_app/extensions/nullable_int_extension.dart';
@@ -40,6 +42,44 @@ class MoviesRepositoryImpl implements MoviesRepository {
         final movies = List<Map<String, dynamic>>.from(response.data['results'] as List).map((movie) => Movie.fromJson(movie)).toList();
 
         return Right(movies);
+      }
+
+      return Left(Failure.fromResponse(response));
+    } on DioError catch (dioError) {
+      return Left(Failure.fromDioError(dioError));
+    } catch (e) {
+      return Left(Failure.generic(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, MovieDetails>> getMovieDetails({required int movieId}) async {
+    try {
+      final response = await _apiRepository.getMovieDetails(movieId: movieId);
+
+      if (response.statusCode.isSuccessful) {
+        final movieDetails = MovieDetails.fromJson(response.data['results']);
+
+        return Right(movieDetails);
+      }
+
+      return Left(Failure.fromResponse(response));
+    } on DioError catch (dioError) {
+      return Left(Failure.fromDioError(dioError));
+    } catch (e) {
+      return Left(Failure.generic(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, MovieCredits>> getMovieCredits({required int movieId}) async {
+    try {
+      final response = await _apiRepository.getMovieCredits(movieId: movieId);
+
+      if (response.statusCode.isSuccessful) {
+        final movieCredits = MovieCredits.fromJson(response.data['results']);
+
+        return Right(movieCredits);
       }
 
       return Left(Failure.fromResponse(response));
