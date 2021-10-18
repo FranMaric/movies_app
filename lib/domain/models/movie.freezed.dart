@@ -23,7 +23,8 @@ class _$MovieTearOff {
 
   _Movie call(
       {required int id,
-      @JsonKey(name: 'backdrop_path') String? backdropPath,
+      @JsonKey(name: 'backdrop_path', fromJson: toUrl, toJson: fromUrl)
+          String? backdropPath,
       required String title}) {
     return _Movie(
       id: id,
@@ -43,7 +44,7 @@ const $Movie = _$MovieTearOff();
 /// @nodoc
 mixin _$Movie {
   int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'backdrop_path')
+  @JsonKey(name: 'backdrop_path', fromJson: toUrl, toJson: fromUrl)
   String? get backdropPath => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
@@ -58,7 +59,8 @@ abstract class $MovieCopyWith<$Res> {
       _$MovieCopyWithImpl<$Res>;
   $Res call(
       {int id,
-      @JsonKey(name: 'backdrop_path') String? backdropPath,
+      @JsonKey(name: 'backdrop_path', fromJson: toUrl, toJson: fromUrl)
+          String? backdropPath,
       String title});
 }
 
@@ -100,7 +102,8 @@ abstract class _$MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
   @override
   $Res call(
       {int id,
-      @JsonKey(name: 'backdrop_path') String? backdropPath,
+      @JsonKey(name: 'backdrop_path', fromJson: toUrl, toJson: fromUrl)
+          String? backdropPath,
       String title});
 }
 
@@ -141,7 +144,8 @@ class __$MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res>
 class _$_Movie implements _Movie {
   const _$_Movie(
       {required this.id,
-      @JsonKey(name: 'backdrop_path') this.backdropPath,
+      @JsonKey(name: 'backdrop_path', fromJson: toUrl, toJson: fromUrl)
+          this.backdropPath,
       required this.title});
 
   factory _$_Movie.fromJson(Map<String, dynamic> json) =>
@@ -150,7 +154,7 @@ class _$_Movie implements _Movie {
   @override
   final int id;
   @override
-  @JsonKey(name: 'backdrop_path')
+  @JsonKey(name: 'backdrop_path', fromJson: toUrl, toJson: fromUrl)
   final String? backdropPath;
   @override
   final String title;
@@ -194,7 +198,8 @@ class _$_Movie implements _Movie {
 abstract class _Movie implements Movie {
   const factory _Movie(
       {required int id,
-      @JsonKey(name: 'backdrop_path') String? backdropPath,
+      @JsonKey(name: 'backdrop_path', fromJson: toUrl, toJson: fromUrl)
+          String? backdropPath,
       required String title}) = _$_Movie;
 
   factory _Movie.fromJson(Map<String, dynamic> json) = _$_Movie.fromJson;
@@ -202,7 +207,7 @@ abstract class _Movie implements Movie {
   @override
   int get id => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'backdrop_path')
+  @JsonKey(name: 'backdrop_path', fromJson: toUrl, toJson: fromUrl)
   String? get backdropPath => throw _privateConstructorUsedError;
   @override
   String get title => throw _privateConstructorUsedError;

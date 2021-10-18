@@ -10,8 +10,6 @@ class MovieWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final imageUrl = 'https://image.tmdb.org/t/p/w500${movie.backdropPath}';
-
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 20.0,
@@ -26,7 +24,7 @@ class MovieWidget extends StatelessWidget {
             children: [
               if (movie.backdropPath != null)
                 CachedNetworkImage(
-                  imageUrl: imageUrl,
+                  imageUrl: movie.backdropPath!,
                   fit: BoxFit.cover,
                   height: MediaQuery.of(context).size.width * 0.9 * 0.55,
                   width: MediaQuery.of(context).size.width * 0.9,
