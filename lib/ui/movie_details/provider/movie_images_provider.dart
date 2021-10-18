@@ -5,9 +5,9 @@ import 'package:movie_app/domain/repositories/movies_repository/movies_repositor
 final movieImagesProvider = FutureProvider.family.autoDispose<MovieImages, int>((ref, movieId) async {
   final moviesRepository = ref.watch(moviesRepositoryProvider);
 
-  final moviesOrFailure = await moviesRepository.getMovieImages(movieId: movieId);
+  final movieImagesOrFailure = await moviesRepository.getMovieImages(movieId: movieId);
 
-  return moviesOrFailure.fold(
+  return movieImagesOrFailure.fold(
     (failure) => throw failure,
     (movieImages) => movieImages,
   );
