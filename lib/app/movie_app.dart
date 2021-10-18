@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:movie_app/app/theme.dart';
+import 'package:movie_app/domain/route_generator.dart';
 import 'package:movie_app/source_remote/api_repository/api_repository_impl.dart';
 import 'package:movie_app/source_remote/api_repository/api_repository_provider.dart';
-import 'package:movie_app/ui/home/home_screen.dart';
 
 class MovieApp extends StatelessWidget {
   const MovieApp({Key? key}) : super(key: key);
@@ -23,7 +23,7 @@ class MovieApp extends StatelessWidget {
       navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
       theme: theme,
-      home: const HomeScreen(),
+      onGenerateRoute: generateRoute,
     );
   }
 }
