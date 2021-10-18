@@ -58,7 +58,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
       final response = await _apiRepository.getMovieDetails(movieId: movieId);
 
       if (response.statusCode.isSuccessful) {
-        final movieDetails = MovieDetails.fromJson(response.data['results']);
+        final movieDetails = MovieDetails.fromJson(response.data);
 
         return Right(movieDetails);
       }
@@ -77,7 +77,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
       final response = await _apiRepository.getMovieCredits(movieId: movieId);
 
       if (response.statusCode.isSuccessful) {
-        final movieCredits = MovieCredits.fromJson(response.data['results']);
+        final movieCredits = MovieCredits.fromJson(response.data);
 
         return Right(movieCredits);
       }
