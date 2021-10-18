@@ -7,6 +7,7 @@ import 'package:movie_app/ui/home/movies_view/provider/movies_notifier_provider.
 import 'package:movie_app/ui/home/movies_view/provider/movies_state.dart';
 import 'package:movie_app/ui/home/widgets/scroll_to_top_fab.dart';
 import 'package:movie_app/ui/home/widgets/search_bar.dart';
+import 'package:movie_app/ui/movie_details/movie_details_screen.dart';
 
 // _scrollController is not inside MoviesView class to keep scroll offset when switching MoviesView and ActorsView
 final _scrollController = ScrollController(keepScrollOffset: true);
@@ -26,10 +27,7 @@ class MoviesView extends StatelessWidget with FailureHandlingMixin {
       provider: moviesViewNotifierProvider,
       onChange: (context, moviesState) {
         if (moviesState is MoviesStateFailure) {
-          showSnackBarMessage(
-            context: context,
-            failure: moviesState.failure,
-          );
+          showSnackBarMessage(context: context, failure: moviesState.failure);
         }
       },
       child: StatefulWrapper(
@@ -71,9 +69,7 @@ class MoviesView extends StatelessWidget with FailureHandlingMixin {
                                   if (index < movies.length) {
                                     return MovieWidget(
                                       movie: movies[index],
-                                      onTap: () {
-                                        //TODO: Navigate to details
-                                      },
+                                      onTap: () => Navigator.of(context).pushNamed(MovieDetailsScreen.route, arguments: movies[index]),
                                     );
                                   }
 
