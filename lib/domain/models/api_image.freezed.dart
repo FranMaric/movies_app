@@ -22,12 +22,16 @@ class _$ApiImageTearOff {
   const _$ApiImageTearOff();
 
   _ApiImage call(
-      {@JsonKey(name: 'aspect_ratio') required double aspectRatio,
-      @JsonKey(name: 'file_path') required String filePath,
+      {@JsonKey(name: 'aspect_ratio')
+          required double aspectRatio,
+      @JsonKey(name: 'file_path', fromJson: toUrl, toJson: fromUrl)
+          required String filePath,
       required int height,
       required int width,
-      @JsonKey(name: 'vote_average') required int voteAverage,
-      @JsonKey(name: 'vote_count') required int voteCount}) {
+      @JsonKey(name: 'vote_average')
+          required double voteAverage,
+      @JsonKey(name: 'vote_count')
+          required int voteCount}) {
     return _ApiImage(
       aspectRatio: aspectRatio,
       filePath: filePath,
@@ -50,12 +54,12 @@ const $ApiImage = _$ApiImageTearOff();
 mixin _$ApiImage {
   @JsonKey(name: 'aspect_ratio')
   double get aspectRatio => throw _privateConstructorUsedError;
-  @JsonKey(name: 'file_path')
+  @JsonKey(name: 'file_path', fromJson: toUrl, toJson: fromUrl)
   String get filePath => throw _privateConstructorUsedError;
   int get height => throw _privateConstructorUsedError;
   int get width => throw _privateConstructorUsedError;
   @JsonKey(name: 'vote_average')
-  int get voteAverage => throw _privateConstructorUsedError;
+  double get voteAverage => throw _privateConstructorUsedError;
   @JsonKey(name: 'vote_count')
   int get voteCount => throw _privateConstructorUsedError;
 
@@ -70,12 +74,16 @@ abstract class $ApiImageCopyWith<$Res> {
   factory $ApiImageCopyWith(ApiImage value, $Res Function(ApiImage) then) =
       _$ApiImageCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'aspect_ratio') double aspectRatio,
-      @JsonKey(name: 'file_path') String filePath,
+      {@JsonKey(name: 'aspect_ratio')
+          double aspectRatio,
+      @JsonKey(name: 'file_path', fromJson: toUrl, toJson: fromUrl)
+          String filePath,
       int height,
       int width,
-      @JsonKey(name: 'vote_average') int voteAverage,
-      @JsonKey(name: 'vote_count') int voteCount});
+      @JsonKey(name: 'vote_average')
+          double voteAverage,
+      @JsonKey(name: 'vote_count')
+          int voteCount});
 }
 
 /// @nodoc
@@ -115,7 +123,7 @@ class _$ApiImageCopyWithImpl<$Res> implements $ApiImageCopyWith<$Res> {
       voteAverage: voteAverage == freezed
           ? _value.voteAverage
           : voteAverage // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       voteCount: voteCount == freezed
           ? _value.voteCount
           : voteCount // ignore: cast_nullable_to_non_nullable
@@ -130,12 +138,16 @@ abstract class _$ApiImageCopyWith<$Res> implements $ApiImageCopyWith<$Res> {
       __$ApiImageCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'aspect_ratio') double aspectRatio,
-      @JsonKey(name: 'file_path') String filePath,
+      {@JsonKey(name: 'aspect_ratio')
+          double aspectRatio,
+      @JsonKey(name: 'file_path', fromJson: toUrl, toJson: fromUrl)
+          String filePath,
       int height,
       int width,
-      @JsonKey(name: 'vote_average') int voteAverage,
-      @JsonKey(name: 'vote_count') int voteCount});
+      @JsonKey(name: 'vote_average')
+          double voteAverage,
+      @JsonKey(name: 'vote_count')
+          int voteCount});
 }
 
 /// @nodoc
@@ -176,7 +188,7 @@ class __$ApiImageCopyWithImpl<$Res> extends _$ApiImageCopyWithImpl<$Res>
       voteAverage: voteAverage == freezed
           ? _value.voteAverage
           : voteAverage // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       voteCount: voteCount == freezed
           ? _value.voteCount
           : voteCount // ignore: cast_nullable_to_non_nullable
@@ -189,12 +201,16 @@ class __$ApiImageCopyWithImpl<$Res> extends _$ApiImageCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ApiImage implements _ApiImage {
   const _$_ApiImage(
-      {@JsonKey(name: 'aspect_ratio') required this.aspectRatio,
-      @JsonKey(name: 'file_path') required this.filePath,
+      {@JsonKey(name: 'aspect_ratio')
+          required this.aspectRatio,
+      @JsonKey(name: 'file_path', fromJson: toUrl, toJson: fromUrl)
+          required this.filePath,
       required this.height,
       required this.width,
-      @JsonKey(name: 'vote_average') required this.voteAverage,
-      @JsonKey(name: 'vote_count') required this.voteCount});
+      @JsonKey(name: 'vote_average')
+          required this.voteAverage,
+      @JsonKey(name: 'vote_count')
+          required this.voteCount});
 
   factory _$_ApiImage.fromJson(Map<String, dynamic> json) =>
       _$$_ApiImageFromJson(json);
@@ -203,7 +219,7 @@ class _$_ApiImage implements _ApiImage {
   @JsonKey(name: 'aspect_ratio')
   final double aspectRatio;
   @override
-  @JsonKey(name: 'file_path')
+  @JsonKey(name: 'file_path', fromJson: toUrl, toJson: fromUrl)
   final String filePath;
   @override
   final int height;
@@ -211,7 +227,7 @@ class _$_ApiImage implements _ApiImage {
   final int width;
   @override
   @JsonKey(name: 'vote_average')
-  final int voteAverage;
+  final double voteAverage;
   @override
   @JsonKey(name: 'vote_count')
   final int voteCount;
@@ -266,12 +282,16 @@ class _$_ApiImage implements _ApiImage {
 
 abstract class _ApiImage implements ApiImage {
   const factory _ApiImage(
-      {@JsonKey(name: 'aspect_ratio') required double aspectRatio,
-      @JsonKey(name: 'file_path') required String filePath,
+      {@JsonKey(name: 'aspect_ratio')
+          required double aspectRatio,
+      @JsonKey(name: 'file_path', fromJson: toUrl, toJson: fromUrl)
+          required String filePath,
       required int height,
       required int width,
-      @JsonKey(name: 'vote_average') required int voteAverage,
-      @JsonKey(name: 'vote_count') required int voteCount}) = _$_ApiImage;
+      @JsonKey(name: 'vote_average')
+          required double voteAverage,
+      @JsonKey(name: 'vote_count')
+          required int voteCount}) = _$_ApiImage;
 
   factory _ApiImage.fromJson(Map<String, dynamic> json) = _$_ApiImage.fromJson;
 
@@ -279,7 +299,7 @@ abstract class _ApiImage implements ApiImage {
   @JsonKey(name: 'aspect_ratio')
   double get aspectRatio => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'file_path')
+  @JsonKey(name: 'file_path', fromJson: toUrl, toJson: fromUrl)
   String get filePath => throw _privateConstructorUsedError;
   @override
   int get height => throw _privateConstructorUsedError;
@@ -287,7 +307,7 @@ abstract class _ApiImage implements ApiImage {
   int get width => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'vote_average')
-  int get voteAverage => throw _privateConstructorUsedError;
+  double get voteAverage => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'vote_count')
   int get voteCount => throw _privateConstructorUsedError;
