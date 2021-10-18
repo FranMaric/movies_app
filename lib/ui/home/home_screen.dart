@@ -7,6 +7,8 @@ import 'package:movie_app/ui/home/movies_view/movies_view.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
+  static const route = '/';
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
