@@ -20,9 +20,6 @@ class MovieDetailsScreen extends StatelessWidget {
               headerSliverBuilder: (context, __) => [
                 SliverAppBar(
                   pinned: true,
-                  iconTheme: const IconThemeData(
-                    color: Colors.black,
-                  ),
                   expandedHeight: 120.0,
                   flexibleSpace: FlexibleSpaceBar(
                     centerTitle: false,
@@ -30,9 +27,7 @@ class MovieDetailsScreen extends StatelessWidget {
                       alignment: Alignment.bottomLeft,
                       child: Text(
                         movie.title,
-                        style: const TextStyle(
-                          color: Colors.black,
-                        ),
+                        style: Theme.of(context).textTheme.headline6,
                       ),
                     ),
                   ),

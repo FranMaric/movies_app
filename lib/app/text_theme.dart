@@ -12,4 +12,9 @@ const textTheme = TextTheme(
     fontSize: 18.0,
     fontWeight: FontWeight.w400,
   ),
+  headline6: TextStyle(
+    color: Colors.black87,
+    fontSize: 22.0,
+    fontWeight: FontWeight.w500,
+  ),
 );
