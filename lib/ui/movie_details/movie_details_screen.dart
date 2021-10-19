@@ -38,13 +38,7 @@ class MovieDetailsScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     MovieImagesWidget(movieId: movie.id),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 16.0),
-                      child: Text(
-                        'Actors',
-                        style: Theme.of(context).textTheme.subtitle1,
-                      ),
-                    ),
+                    _actorsTitle(context),
                     ActorsWidget(movieId: movie.id),
                   ],
                 ),
@@ -57,6 +51,16 @@ class MovieDetailsScreen extends StatelessWidget {
             // TODO: add button for new comments, when pressen should pop up modal bottomsheet for input
           )
         ],
+      ),
+    );
+  }
+
+  Widget _actorsTitle(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 16.0),
+      child: Text(
+        'Actors',
+        style: Theme.of(context).textTheme.subtitle1,
       ),
     );
   }
