@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:movie_app/domain/models/movie.dart';
+import 'package:movie_app/ui/movie_details/provider/movie_credits_provider.dart';
+import 'package:movie_app/ui/movie_details/provider/movie_details_provider.dart';
+import 'package:movie_app/ui/movie_details/provider/movie_images_provider.dart';
 import 'package:movie_app/ui/movie_details/widgets/actors_widget.dart';
+import 'package:movie_app/ui/movie_details/widgets/movie_details_widget.dart';
 import 'package:movie_app/ui/movie_details/widgets/movie_images_widget.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
@@ -12,6 +17,12 @@ class MovieDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future<void> onRefresh() async {
+      context.refresh(movieImagesProvider(movie.id));
+      context.refresh(movieDetailsProvider(movie.id));
+      context.refresh(movieCreditsProvider(movie.id));
+    }
+
     return Scaffold(
       body: Column(
         children: [
@@ -33,14 +44,19 @@ class MovieDetailsScreen extends StatelessWidget {
                   ),
                 ),
               ],
-              body: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    MovieImagesWidget(movieId: movie.id),
-                    _actorsTitle(context),
-                    ActorsWidget(movieId: movie.id),
-                  ],
+              body: RefreshIndicator(
+                onRefresh: onRefresh,
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      MovieImagesWidget(movieId: movie.id),
+                      MovieDetailsWidget(movieId: movie.id),
+                      _actorsTitle(context),
+                      ActorsWidget(movieId: movie.id),
+                    ],
+                  ),
                 ),
               ),
             ),

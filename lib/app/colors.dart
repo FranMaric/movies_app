@@ -5,6 +5,7 @@ const Color blackBackground = Color(0xFF101820);
 const Color ratedMessageGreen = Color(0xFF4CAF50);
 const Color deleteRatingRed = Color(0xFFF44336);
 const Color linkBlue = Color(0xFF2196F3);
+const Color niceGrey = Color(0xFF696969);
 
 final Map<int, Color> primaryMaterialColor = {
   50: const Color(0xFFF49F1C),

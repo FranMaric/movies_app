@@ -12,6 +12,11 @@ const textTheme = TextTheme(
     fontSize: 18.0,
     fontWeight: FontWeight.w400,
   ),
+  bodyText2: TextStyle(
+    color: Colors.white,
+    fontSize: 14.0,
+    fontWeight: FontWeight.w800,
+  ),
   headline6: TextStyle(
     color: Colors.black87,
     fontSize: 22.0,
