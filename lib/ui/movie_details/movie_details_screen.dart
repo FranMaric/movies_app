@@ -1,6 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/domain/models/movie.dart';
+import 'package:movie_app/ui/movie_details/widgets/actors_widget.dart';
 import 'package:movie_app/ui/movie_details/widgets/movie_images_widget.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
@@ -38,6 +38,7 @@ class MovieDetailsScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     MovieImagesWidget(movieId: movie.id),
+                    ActorsWidget(movieId: movie.id),
                   ],
                 ),
               ),
