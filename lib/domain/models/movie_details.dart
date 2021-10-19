@@ -9,9 +9,13 @@ class MovieDetails with _$MovieDetails {
   const factory MovieDetails({
     required int id,
     required int budget,
+    int? runtime,
+    required double popularity,
     required bool adult,
     @JsonKey(name: 'backdrop_path') String? backdropPath,
     required String title,
+    String? overview,
+    String? tagline,
     @JsonKey(name: 'original_title') required String originalTitle,
     @JsonKey(name: 'original_language') required String originalLanguage,
     required String homepage,

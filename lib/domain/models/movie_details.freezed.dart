@@ -24,9 +24,13 @@ class _$MovieDetailsTearOff {
   _MovieDetails call(
       {required int id,
       required int budget,
+      int? runtime,
+      required double popularity,
       required bool adult,
       @JsonKey(name: 'backdrop_path') String? backdropPath,
       required String title,
+      String? overview,
+      String? tagline,
       @JsonKey(name: 'original_title') required String originalTitle,
       @JsonKey(name: 'original_language') required String originalLanguage,
       required String homepage,
@@ -34,9 +38,13 @@ class _$MovieDetailsTearOff {
     return _MovieDetails(
       id: id,
       budget: budget,
+      runtime: runtime,
+      popularity: popularity,
       adult: adult,
       backdropPath: backdropPath,
       title: title,
+      overview: overview,
+      tagline: tagline,
       originalTitle: originalTitle,
       originalLanguage: originalLanguage,
       homepage: homepage,
@@ -56,10 +64,14 @@ const $MovieDetails = _$MovieDetailsTearOff();
 mixin _$MovieDetails {
   int get id => throw _privateConstructorUsedError;
   int get budget => throw _privateConstructorUsedError;
+  int? get runtime => throw _privateConstructorUsedError;
+  double get popularity => throw _privateConstructorUsedError;
   bool get adult => throw _privateConstructorUsedError;
   @JsonKey(name: 'backdrop_path')
   String? get backdropPath => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  String? get overview => throw _privateConstructorUsedError;
+  String? get tagline => throw _privateConstructorUsedError;
   @JsonKey(name: 'original_title')
   String get originalTitle => throw _privateConstructorUsedError;
   @JsonKey(name: 'original_language')
@@ -81,9 +93,13 @@ abstract class $MovieDetailsCopyWith<$Res> {
   $Res call(
       {int id,
       int budget,
+      int? runtime,
+      double popularity,
       bool adult,
       @JsonKey(name: 'backdrop_path') String? backdropPath,
       String title,
+      String? overview,
+      String? tagline,
       @JsonKey(name: 'original_title') String originalTitle,
       @JsonKey(name: 'original_language') String originalLanguage,
       String homepage,
@@ -102,9 +118,13 @@ class _$MovieDetailsCopyWithImpl<$Res> implements $MovieDetailsCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? budget = freezed,
+    Object? runtime = freezed,
+    Object? popularity = freezed,
     Object? adult = freezed,
     Object? backdropPath = freezed,
     Object? title = freezed,
+    Object? overview = freezed,
+    Object? tagline = freezed,
     Object? originalTitle = freezed,
     Object? originalLanguage = freezed,
     Object? homepage = freezed,
@@ -119,6 +139,14 @@ class _$MovieDetailsCopyWithImpl<$Res> implements $MovieDetailsCopyWith<$Res> {
           ? _value.budget
           : budget // ignore: cast_nullable_to_non_nullable
               as int,
+      runtime: runtime == freezed
+          ? _value.runtime
+          : runtime // ignore: cast_nullable_to_non_nullable
+              as int?,
+      popularity: popularity == freezed
+          ? _value.popularity
+          : popularity // ignore: cast_nullable_to_non_nullable
+              as double,
       adult: adult == freezed
           ? _value.adult
           : adult // ignore: cast_nullable_to_non_nullable
@@ -131,6 +159,14 @@ class _$MovieDetailsCopyWithImpl<$Res> implements $MovieDetailsCopyWith<$Res> {
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      overview: overview == freezed
+          ? _value.overview
+          : overview // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagline: tagline == freezed
+          ? _value.tagline
+          : tagline // ignore: cast_nullable_to_non_nullable
+              as String?,
       originalTitle: originalTitle == freezed
           ? _value.originalTitle
           : originalTitle // ignore: cast_nullable_to_non_nullable
@@ -161,9 +197,13 @@ abstract class _$MovieDetailsCopyWith<$Res>
   $Res call(
       {int id,
       int budget,
+      int? runtime,
+      double popularity,
       bool adult,
       @JsonKey(name: 'backdrop_path') String? backdropPath,
       String title,
+      String? overview,
+      String? tagline,
       @JsonKey(name: 'original_title') String originalTitle,
       @JsonKey(name: 'original_language') String originalLanguage,
       String homepage,
@@ -184,9 +224,13 @@ class __$MovieDetailsCopyWithImpl<$Res> extends _$MovieDetailsCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? budget = freezed,
+    Object? runtime = freezed,
+    Object? popularity = freezed,
     Object? adult = freezed,
     Object? backdropPath = freezed,
     Object? title = freezed,
+    Object? overview = freezed,
+    Object? tagline = freezed,
     Object? originalTitle = freezed,
     Object? originalLanguage = freezed,
     Object? homepage = freezed,
@@ -201,6 +245,14 @@ class __$MovieDetailsCopyWithImpl<$Res> extends _$MovieDetailsCopyWithImpl<$Res>
           ? _value.budget
           : budget // ignore: cast_nullable_to_non_nullable
               as int,
+      runtime: runtime == freezed
+          ? _value.runtime
+          : runtime // ignore: cast_nullable_to_non_nullable
+              as int?,
+      popularity: popularity == freezed
+          ? _value.popularity
+          : popularity // ignore: cast_nullable_to_non_nullable
+              as double,
       adult: adult == freezed
           ? _value.adult
           : adult // ignore: cast_nullable_to_non_nullable
@@ -213,6 +265,14 @@ class __$MovieDetailsCopyWithImpl<$Res> extends _$MovieDetailsCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      overview: overview == freezed
+          ? _value.overview
+          : overview // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagline: tagline == freezed
+          ? _value.tagline
+          : tagline // ignore: cast_nullable_to_non_nullable
+              as String?,
       originalTitle: originalTitle == freezed
           ? _value.originalTitle
           : originalTitle // ignore: cast_nullable_to_non_nullable
@@ -239,9 +299,13 @@ class _$_MovieDetails implements _MovieDetails {
   const _$_MovieDetails(
       {required this.id,
       required this.budget,
+      this.runtime,
+      required this.popularity,
       required this.adult,
       @JsonKey(name: 'backdrop_path') this.backdropPath,
       required this.title,
+      this.overview,
+      this.tagline,
       @JsonKey(name: 'original_title') required this.originalTitle,
       @JsonKey(name: 'original_language') required this.originalLanguage,
       required this.homepage,
@@ -255,12 +319,20 @@ class _$_MovieDetails implements _MovieDetails {
   @override
   final int budget;
   @override
+  final int? runtime;
+  @override
+  final double popularity;
+  @override
   final bool adult;
   @override
   @JsonKey(name: 'backdrop_path')
   final String? backdropPath;
   @override
   final String title;
+  @override
+  final String? overview;
+  @override
+  final String? tagline;
   @override
   @JsonKey(name: 'original_title')
   final String originalTitle;
@@ -274,7 +346,7 @@ class _$_MovieDetails implements _MovieDetails {
 
   @override
   String toString() {
-    return 'MovieDetails(id: $id, budget: $budget, adult: $adult, backdropPath: $backdropPath, title: $title, originalTitle: $originalTitle, originalLanguage: $originalLanguage, homepage: $homepage, genres: $genres)';
+    return 'MovieDetails(id: $id, budget: $budget, runtime: $runtime, popularity: $popularity, adult: $adult, backdropPath: $backdropPath, title: $title, overview: $overview, tagline: $tagline, originalTitle: $originalTitle, originalLanguage: $originalLanguage, homepage: $homepage, genres: $genres)';
   }
 
   @override
@@ -285,6 +357,12 @@ class _$_MovieDetails implements _MovieDetails {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.budget, budget) ||
                 const DeepCollectionEquality().equals(other.budget, budget)) &&
+            (identical(other.runtime, runtime) ||
+                const DeepCollectionEquality()
+                    .equals(other.runtime, runtime)) &&
+            (identical(other.popularity, popularity) ||
+                const DeepCollectionEquality()
+                    .equals(other.popularity, popularity)) &&
             (identical(other.adult, adult) ||
                 const DeepCollectionEquality().equals(other.adult, adult)) &&
             (identical(other.backdropPath, backdropPath) ||
@@ -292,6 +370,12 @@ class _$_MovieDetails implements _MovieDetails {
                     .equals(other.backdropPath, backdropPath)) &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
+            (identical(other.overview, overview) ||
+                const DeepCollectionEquality()
+                    .equals(other.overview, overview)) &&
+            (identical(other.tagline, tagline) ||
+                const DeepCollectionEquality()
+                    .equals(other.tagline, tagline)) &&
             (identical(other.originalTitle, originalTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.originalTitle, originalTitle)) &&
@@ -310,9 +394,13 @@ class _$_MovieDetails implements _MovieDetails {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(budget) ^
+      const DeepCollectionEquality().hash(runtime) ^
+      const DeepCollectionEquality().hash(popularity) ^
       const DeepCollectionEquality().hash(adult) ^
       const DeepCollectionEquality().hash(backdropPath) ^
       const DeepCollectionEquality().hash(title) ^
+      const DeepCollectionEquality().hash(overview) ^
+      const DeepCollectionEquality().hash(tagline) ^
       const DeepCollectionEquality().hash(originalTitle) ^
       const DeepCollectionEquality().hash(originalLanguage) ^
       const DeepCollectionEquality().hash(homepage) ^
@@ -333,9 +421,13 @@ abstract class _MovieDetails implements MovieDetails {
   const factory _MovieDetails(
       {required int id,
       required int budget,
+      int? runtime,
+      required double popularity,
       required bool adult,
       @JsonKey(name: 'backdrop_path') String? backdropPath,
       required String title,
+      String? overview,
+      String? tagline,
       @JsonKey(name: 'original_title') required String originalTitle,
       @JsonKey(name: 'original_language') required String originalLanguage,
       required String homepage,
@@ -349,12 +441,20 @@ abstract class _MovieDetails implements MovieDetails {
   @override
   int get budget => throw _privateConstructorUsedError;
   @override
+  int? get runtime => throw _privateConstructorUsedError;
+  @override
+  double get popularity => throw _privateConstructorUsedError;
+  @override
   bool get adult => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'backdrop_path')
   String? get backdropPath => throw _privateConstructorUsedError;
   @override
   String get title => throw _privateConstructorUsedError;
+  @override
+  String? get overview => throw _privateConstructorUsedError;
+  @override
+  String? get tagline => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'original_title')
   String get originalTitle => throw _privateConstructorUsedError;
