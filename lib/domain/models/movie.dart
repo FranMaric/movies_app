@@ -7,12 +7,7 @@ part 'movie.g.dart';
 class Movie with _$Movie {
   const factory Movie({
     required int id,
-    @JsonKey(
-      name: 'backdrop_path',
-      fromJson: toUrl,
-      toJson: fromUrl,
-    )
-        String? backdropPath,
+    @JsonKey(name: 'backdrop_path', fromJson: toUrl, toJson: fromUrl) String? backdropPath,
     required String title,
   }) = _Movie;
 
