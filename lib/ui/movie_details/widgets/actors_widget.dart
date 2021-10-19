@@ -38,21 +38,22 @@ class ActorsWidget extends ConsumerWidget {
             movieCredits.cast[index].name,
             style: Theme.of(context).textTheme.subtitle2,
           ),
-          subtitle: Text(
-            'Character: ${movieCredits.cast[index].character}',
-            style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: 14),
-          ),
-          leading: Visibility(
-            visible: movieCredits.cast[index].profilePath != null,
-            child: ClipOval(
-              child: CachedNetworkImage(
-                width: MediaQuery.of(context).size.width * 0.15,
-                height: MediaQuery.of(context).size.width * 0.15,
-                fit: BoxFit.cover,
-                imageUrl: movieCredits.cast[index].profilePath!,
-              ),
-            ),
-          ),
+          subtitle: movieCredits.cast[index].character.isNotEmpty
+              ? Text(
+                  'Character: ${movieCredits.cast[index].character}',
+                  style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: 14),
+                )
+              : null,
+          leading: movieCredits.cast[index].profilePath != null
+              ? ClipOval(
+                  child: CachedNetworkImage(
+                    width: MediaQuery.of(context).size.width * 0.15,
+                    height: MediaQuery.of(context).size.width * 0.15,
+                    fit: BoxFit.cover,
+                    imageUrl: movieCredits.cast[index].profilePath!,
+                  ),
+                )
+              : null,
         ),
       ),
     );
