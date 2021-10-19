@@ -15,7 +15,7 @@ _$_Actor _$$_ActorFromJson(Map<String, dynamic> json) => _$_Actor(
       popularity: (json['popularity'] as num).toDouble(),
       knownForDepartment: json['known_for_department'] as String,
       originalName: json['original_name'] as String,
-      profilePath: json['profile_path'] as String,
+      profilePath: toUrl(json['profile_path'] as String?),
     );
 
 Map<String, dynamic> _$$_ActorToJson(_$_Actor instance) => <String, dynamic>{
@@ -27,5 +27,5 @@ Map<String, dynamic> _$$_ActorToJson(_$_Actor instance) => <String, dynamic>{
       'popularity': instance.popularity,
       'known_for_department': instance.knownForDepartment,
       'original_name': instance.originalName,
-      'profile_path': instance.profilePath,
+      'profile_path': fromUrl(instance.profilePath),
     };

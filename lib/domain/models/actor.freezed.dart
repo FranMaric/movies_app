@@ -28,9 +28,12 @@ class _$ActorTearOff {
       required String name,
       required String character,
       required double popularity,
-      @JsonKey(name: 'known_for_department') required String knownForDepartment,
-      @JsonKey(name: 'original_name') required String originalName,
-      @JsonKey(name: 'profile_path') required String profilePath}) {
+      @JsonKey(name: 'known_for_department')
+          required String knownForDepartment,
+      @JsonKey(name: 'original_name')
+          required String originalName,
+      @JsonKey(name: 'profile_path', fromJson: toUrl, toJson: fromUrl)
+          String? profilePath}) {
     return _Actor(
       adult: adult,
       gender: gender,
@@ -64,8 +67,8 @@ mixin _$Actor {
   String get knownForDepartment => throw _privateConstructorUsedError;
   @JsonKey(name: 'original_name')
   String get originalName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'profile_path')
-  String get profilePath => throw _privateConstructorUsedError;
+  @JsonKey(name: 'profile_path', fromJson: toUrl, toJson: fromUrl)
+  String? get profilePath => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -83,9 +86,12 @@ abstract class $ActorCopyWith<$Res> {
       String name,
       String character,
       double popularity,
-      @JsonKey(name: 'known_for_department') String knownForDepartment,
-      @JsonKey(name: 'original_name') String originalName,
-      @JsonKey(name: 'profile_path') String profilePath});
+      @JsonKey(name: 'known_for_department')
+          String knownForDepartment,
+      @JsonKey(name: 'original_name')
+          String originalName,
+      @JsonKey(name: 'profile_path', fromJson: toUrl, toJson: fromUrl)
+          String? profilePath});
 }
 
 /// @nodoc
@@ -144,7 +150,7 @@ class _$ActorCopyWithImpl<$Res> implements $ActorCopyWith<$Res> {
       profilePath: profilePath == freezed
           ? _value.profilePath
           : profilePath // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -161,9 +167,12 @@ abstract class _$ActorCopyWith<$Res> implements $ActorCopyWith<$Res> {
       String name,
       String character,
       double popularity,
-      @JsonKey(name: 'known_for_department') String knownForDepartment,
-      @JsonKey(name: 'original_name') String originalName,
-      @JsonKey(name: 'profile_path') String profilePath});
+      @JsonKey(name: 'known_for_department')
+          String knownForDepartment,
+      @JsonKey(name: 'original_name')
+          String originalName,
+      @JsonKey(name: 'profile_path', fromJson: toUrl, toJson: fromUrl)
+          String? profilePath});
 }
 
 /// @nodoc
@@ -223,7 +232,7 @@ class __$ActorCopyWithImpl<$Res> extends _$ActorCopyWithImpl<$Res>
       profilePath: profilePath == freezed
           ? _value.profilePath
           : profilePath // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -238,9 +247,12 @@ class _$_Actor implements _Actor {
       required this.name,
       required this.character,
       required this.popularity,
-      @JsonKey(name: 'known_for_department') required this.knownForDepartment,
-      @JsonKey(name: 'original_name') required this.originalName,
-      @JsonKey(name: 'profile_path') required this.profilePath});
+      @JsonKey(name: 'known_for_department')
+          required this.knownForDepartment,
+      @JsonKey(name: 'original_name')
+          required this.originalName,
+      @JsonKey(name: 'profile_path', fromJson: toUrl, toJson: fromUrl)
+          this.profilePath});
 
   factory _$_Actor.fromJson(Map<String, dynamic> json) =>
       _$$_ActorFromJson(json);
@@ -264,8 +276,8 @@ class _$_Actor implements _Actor {
   @JsonKey(name: 'original_name')
   final String originalName;
   @override
-  @JsonKey(name: 'profile_path')
-  final String profilePath;
+  @JsonKey(name: 'profile_path', fromJson: toUrl, toJson: fromUrl)
+  final String? profilePath;
 
   @override
   String toString() {
@@ -333,9 +345,12 @@ abstract class _Actor implements Actor {
       required String name,
       required String character,
       required double popularity,
-      @JsonKey(name: 'known_for_department') required String knownForDepartment,
-      @JsonKey(name: 'original_name') required String originalName,
-      @JsonKey(name: 'profile_path') required String profilePath}) = _$_Actor;
+      @JsonKey(name: 'known_for_department')
+          required String knownForDepartment,
+      @JsonKey(name: 'original_name')
+          required String originalName,
+      @JsonKey(name: 'profile_path', fromJson: toUrl, toJson: fromUrl)
+          String? profilePath}) = _$_Actor;
 
   factory _Actor.fromJson(Map<String, dynamic> json) = _$_Actor.fromJson;
 
@@ -358,8 +373,8 @@ abstract class _Actor implements Actor {
   @JsonKey(name: 'original_name')
   String get originalName => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'profile_path')
-  String get profilePath => throw _privateConstructorUsedError;
+  @JsonKey(name: 'profile_path', fromJson: toUrl, toJson: fromUrl)
+  String? get profilePath => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ActorCopyWith<_Actor> get copyWith => throw _privateConstructorUsedError;
