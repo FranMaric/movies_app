@@ -30,28 +30,26 @@ class ActorsWidget extends ConsumerWidget {
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         itemCount: kActorsCount,
-        itemBuilder: (context, index) => GestureDetector(
+        itemBuilder: (context, index) => ListTile(
           onTap: () {
             //TODO: navigate to ActorDetailsScreen
           },
-          child: ListTile(
-            title: Text(
-              movieCredits.cast[index].name,
-              style: Theme.of(context).textTheme.subtitle2,
-            ),
-            subtitle: Text(
-              'Character: ${movieCredits.cast[index].character}',
-              style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: 14),
-            ),
-            leading: Visibility(
-              visible: movieCredits.cast[index].profilePath != null,
-              child: ClipOval(
-                child: CachedNetworkImage(
-                  width: MediaQuery.of(context).size.width * 0.15,
-                  height: MediaQuery.of(context).size.width * 0.15,
-                  fit: BoxFit.cover,
-                  imageUrl: movieCredits.cast[index].profilePath!,
-                ),
+          title: Text(
+            movieCredits.cast[index].name,
+            style: Theme.of(context).textTheme.subtitle2,
+          ),
+          subtitle: Text(
+            'Character: ${movieCredits.cast[index].character}',
+            style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: 14),
+          ),
+          leading: Visibility(
+            visible: movieCredits.cast[index].profilePath != null,
+            child: ClipOval(
+              child: CachedNetworkImage(
+                width: MediaQuery.of(context).size.width * 0.15,
+                height: MediaQuery.of(context).size.width * 0.15,
+                fit: BoxFit.cover,
+                imageUrl: movieCredits.cast[index].profilePath!,
               ),
             ),
           ),
