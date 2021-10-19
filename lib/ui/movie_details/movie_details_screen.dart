@@ -38,6 +38,13 @@ class MovieDetailsScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     MovieImagesWidget(movieId: movie.id),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16.0),
+                      child: Text(
+                        'Actors',
+                        style: Theme.of(context).textTheme.subtitle1,
+                      ),
+                    ),
                     ActorsWidget(movieId: movie.id),
                   ],
                 ),
