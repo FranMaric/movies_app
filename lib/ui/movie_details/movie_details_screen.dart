@@ -7,6 +7,7 @@ import 'package:movie_app/ui/movie_details/provider/movie_images_provider.dart';
 import 'package:movie_app/ui/movie_details/widgets/actors_widget.dart';
 import 'package:movie_app/ui/movie_details/widgets/movie_details_widget.dart';
 import 'package:movie_app/ui/movie_details/widgets/movie_images_widget.dart';
+import 'package:movie_app/ui/movie_details/widgets/reviews_list.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   const MovieDetailsScreen({Key? key, required this.movie}) : super(key: key);
@@ -54,6 +55,7 @@ class MovieDetailsScreen extends StatelessWidget {
                       MovieImagesWidget(movieId: movie.id),
                       MovieDetailsWidget(movieId: movie.id),
                       ActorsWidget(movieId: movie.id),
+                      ReviewsList(movieId: movie.id),
                     ],
                   ),
                 ),
