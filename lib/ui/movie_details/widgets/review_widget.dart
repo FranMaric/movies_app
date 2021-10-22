@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/domain/models/review.dart';
+import 'package:movie_app/ui/common/expandable_text.dart';
 
 class ReviewWidget extends StatelessWidget {
   const ReviewWidget({Key? key, required this.review}) : super(key: key);
@@ -14,8 +15,8 @@ class ReviewWidget extends StatelessWidget {
         review.author,
         style: Theme.of(context).textTheme.subtitle2,
       ),
-      subtitle: Text(
-        'Character: ${review.content}',
+      subtitle: ExpandableText(
+        review.content,
         style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: 14),
       ),
       leading: review.authorDetails.avatarPath != null
