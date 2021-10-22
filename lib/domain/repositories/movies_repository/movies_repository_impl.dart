@@ -4,6 +4,7 @@ import 'package:movie_app/domain/models/movie.dart';
 import 'package:movie_app/domain/models/movie_credits.dart';
 import 'package:movie_app/domain/models/movie_details.dart';
 import 'package:movie_app/domain/models/movie_images.dart';
+import 'package:movie_app/domain/models/review.dart';
 import 'package:movie_app/domain/repositories/movies_repository/movies_repository.dart';
 import 'package:movie_app/source_remote/api_repository/api_repository.dart';
 import 'package:movie_app/extensions/nullable_int_extension.dart';
@@ -106,6 +107,30 @@ class MoviesRepositoryImpl implements MoviesRepository {
     } on DioError catch (dioError) {
       return Left(Failure.fromDioError(dioError));
     } catch (e) {
+      return Left(Failure.generic(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<Review>>> getReviews({required int movieId}) async {
+    try {
+      final response = await _apiRepository.getReviews(movieId: movieId);
+
+      if (response.statusCode.isSuccessful) {
+        final reviews = List<Map<String, dynamic>>.from(response.data['results'] as List).map((review) => Review.fromJson(review)).toList();
+
+        print('Reviews: $reviews');
+
+        return Right(reviews);
+      }
+
+      print('Fuck');
+      return Left(Failure.fromResponse(response));
+    } on DioError catch (dioError) {
+      print('Fuck DioError');
+      return Left(Failure.fromDioError(dioError));
+    } catch (e) {
+      print('Fuck generic error $e');
       return Left(Failure.generic(e.toString()));
     }
   }
