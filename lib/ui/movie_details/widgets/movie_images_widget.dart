@@ -12,7 +12,7 @@ class MovieImagesWidget extends ConsumerWidget {
   Widget build(BuildContext context, ScopedReader watch) {
     return watch(movieImagesProvider(movieId)).when(
       error: (err, st) => SizedBox(
-        height: MediaQuery.of(context).size.height * 0.3,
+        height: MediaQuery.of(context).size.height * 0.2,
         child: Center(
           child: Text(
             err.toString(),
@@ -22,7 +22,7 @@ class MovieImagesWidget extends ConsumerWidget {
         ),
       ),
       loading: () => SizedBox(
-        height: MediaQuery.of(context).size.height * 0.3,
+        height: MediaQuery.of(context).size.height * 0.2,
         child: const Center(
           child: CircularProgressIndicator(),
         ),
@@ -33,7 +33,7 @@ class MovieImagesWidget extends ConsumerWidget {
         }
 
         return SizedBox(
-          height: MediaQuery.of(context).size.height * 0.3,
+          height: MediaQuery.of(context).size.height * 0.2,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: movieImages.backdrops.length,
