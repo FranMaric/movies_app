@@ -119,18 +119,13 @@ class MoviesRepositoryImpl implements MoviesRepository {
       if (response.statusCode.isSuccessful) {
         final reviews = List<Map<String, dynamic>>.from(response.data['results'] as List).map((review) => Review.fromJson(review)).toList();
 
-        print('Reviews: $reviews');
-
         return Right(reviews);
       }
 
-      print('Fuck');
       return Left(Failure.fromResponse(response));
     } on DioError catch (dioError) {
-      print('Fuck DioError');
       return Left(Failure.fromDioError(dioError));
     } catch (e) {
-      print('Fuck generic error $e');
       return Left(Failure.generic(e.toString()));
     }
   }
