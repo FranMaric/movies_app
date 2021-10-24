@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:movie_app/domain/models/failure.dart';
+import 'package:movie_app/domain/models/genre.dart';
 import 'package:movie_app/domain/models/movie.dart';
 import 'package:movie_app/domain/models/movie_credits.dart';
 import 'package:movie_app/domain/models/movie_details.dart';
@@ -15,6 +16,25 @@ class MoviesRepositoryImpl implements MoviesRepository {
   MoviesRepositoryImpl({required ApiRepository apiRepository}) : _apiRepository = apiRepository;
 
   final ApiRepository _apiRepository;
+
+  @override
+  Future<Either<Failure, List<Genre>>> getAllGenres() async {
+    try {
+      final response = await _apiRepository.getAllGenres();
+
+      if (response.statusCode.isSuccessful) {
+        final genres = List<Map<String, dynamic>>.from(response.data['genres'] as List).map((genre) => Genre.fromJson(genre)).toList();
+
+        return Right(genres);
+      }
+
+      return Left(Failure.fromResponse(response));
+    } on DioError catch (dioError) {
+      return Left(Failure.fromDioError(dioError));
+    } catch (e) {
+      return Left(Failure.generic(e.toString()));
+    }
+  }
 
   @override
   Future<Either<Failure, List<Movie>>> searchMovies({required int page, required String query}) async {

@@ -3,6 +3,8 @@ import 'package:dio/dio.dart';
 abstract class ApiRepository {
   Future<bool> hasInternetConnection();
 
+  Future<Response> getAllGenres();
+
   Future<Response> searchMovies({required String query, required int page});
   Future<Response> getTopRatedMovies({required int page});
   Future<Response> getMovieDetails({required int movieId});

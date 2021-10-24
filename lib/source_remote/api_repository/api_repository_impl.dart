@@ -52,6 +52,11 @@ class ApiRepositoryImpl implements ApiRepository {
   }
 
   @override
+  Future<Response> getAllGenres() {
+    return _dio.get('/genre/movie/list');
+  }
+
+  @override
   Future<Response> searchMovies({required String query, required int page}) {
     return _dio.get(
       '/search/movie',
