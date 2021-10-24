@@ -29,7 +29,7 @@ class ReviewsListState extends State<ReviewsList> {
         GestureDetector(
           onTap: () => setCollapsed(!isCollapsed),
           child: Container(
-            color: Colors.green,
+            color: Colors.transparent,
             padding: const EdgeInsets.symmetric(
               horizontal: 18.0,
               vertical: 10.0,
