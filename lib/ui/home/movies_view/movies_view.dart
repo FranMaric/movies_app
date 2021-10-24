@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:movie_app/ui/common/stateful_wrapper.dart';
 import 'package:movie_app/ui/error_handling/failure_handling_mixin.dart';
+import 'package:movie_app/ui/home/movies_view/genres_list.dart';
 import 'package:movie_app/ui/home/movies_view/movie_widget.dart';
 import 'package:movie_app/ui/home/movies_view/provider/movies_notifier_provider.dart';
 import 'package:movie_app/ui/home/movies_view/provider/movies_state.dart';
@@ -42,6 +43,7 @@ class MoviesView extends StatelessWidget with FailureHandlingMixin {
                   hintText: 'Search movies',
                   onSearch: context.read(moviesViewNotifierProvider.notifier).onSearch,
                 ),
+                const GenresList(),
                 Expanded(
                   child: Consumer(
                     builder: (context, watch, child) {
