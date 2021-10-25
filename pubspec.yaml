@@ -34,6 +34,9 @@ dependencies:
   loggy: ^2.0.1
   flutter_loggy_dio: ^2.0.0+3
 
+  # Video player
+  youtube_player_flutter: ^8.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
