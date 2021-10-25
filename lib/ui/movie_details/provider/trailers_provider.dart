@@ -16,8 +16,6 @@ final trailersProvider = FutureProvider.family<String, int>((ref, movieId) async
 
 /// Finds a trailer that is from YouTube and returns a link to it
 String _selectTrailer(List<Trailer> trailers, int movieId) {
-  if (trailers.isEmpty) throw Failure.noTrailer(movieId);
-
   for (final trailer in trailers) {
     if (trailer.site == 'YouTube') {
       return 'https://www.youtube.com/watch?v=${trailer.key}';
