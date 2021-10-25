@@ -12,6 +12,7 @@ class Failure with _$Failure {
   const factory Failure.noNetwork() = _NoNetwork;
   const factory Failure.unauthorized() = _Unauthorized;
   const factory Failure.serverError() = _ServerError;
+  const factory Failure.noTrailer(int movieId) = _NoTrailer;
 
   factory Failure.fromResponse(Response<dynamic> response) {
     if (response.data['success'] == false) {
@@ -52,6 +53,7 @@ class Failure with _$Failure {
       noNetwork: () => 'Nema interneta',
       unauthorized: () => 'Nemate pristup',
       serverError: () => 'Problem sa serverom',
+      noTrailer: (movieId) => 'Nema trailera za film s id: $movieId',
     );
   }
 }

@@ -34,6 +34,12 @@ class _$FailureTearOff {
   _ServerError serverError() {
     return const _ServerError();
   }
+
+  _NoTrailer noTrailer(int movieId) {
+    return _NoTrailer(
+      movieId,
+    );
+  }
 }
 
 /// @nodoc
@@ -47,6 +53,7 @@ mixin _$Failure {
     required TResult Function() noNetwork,
     required TResult Function() unauthorized,
     required TResult Function() serverError,
+    required TResult Function(int movieId) noTrailer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +62,7 @@ mixin _$Failure {
     TResult Function()? noNetwork,
     TResult Function()? unauthorized,
     TResult Function()? serverError,
+    TResult Function(int movieId)? noTrailer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +71,7 @@ mixin _$Failure {
     TResult Function()? noNetwork,
     TResult Function()? unauthorized,
     TResult Function()? serverError,
+    TResult Function(int movieId)? noTrailer,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -72,6 +81,7 @@ mixin _$Failure {
     required TResult Function(_NoNetwork value) noNetwork,
     required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_ServerError value) serverError,
+    required TResult Function(_NoTrailer value) noTrailer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +90,7 @@ mixin _$Failure {
     TResult Function(_NoNetwork value)? noNetwork,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_NoTrailer value)? noTrailer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,6 +99,7 @@ mixin _$Failure {
     TResult Function(_NoNetwork value)? noNetwork,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_NoTrailer value)? noTrailer,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -169,6 +181,7 @@ class _$_Generic extends _Generic {
     required TResult Function() noNetwork,
     required TResult Function() unauthorized,
     required TResult Function() serverError,
+    required TResult Function(int movieId) noTrailer,
   }) {
     return generic(message);
   }
@@ -180,6 +193,7 @@ class _$_Generic extends _Generic {
     TResult Function()? noNetwork,
     TResult Function()? unauthorized,
     TResult Function()? serverError,
+    TResult Function(int movieId)? noTrailer,
   }) {
     return generic?.call(message);
   }
@@ -191,6 +205,7 @@ class _$_Generic extends _Generic {
     TResult Function()? noNetwork,
     TResult Function()? unauthorized,
     TResult Function()? serverError,
+    TResult Function(int movieId)? noTrailer,
     required TResult orElse(),
   }) {
     if (generic != null) {
@@ -206,6 +221,7 @@ class _$_Generic extends _Generic {
     required TResult Function(_NoNetwork value) noNetwork,
     required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_ServerError value) serverError,
+    required TResult Function(_NoTrailer value) noTrailer,
   }) {
     return generic(this);
   }
@@ -217,6 +233,7 @@ class _$_Generic extends _Generic {
     TResult Function(_NoNetwork value)? noNetwork,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_NoTrailer value)? noTrailer,
   }) {
     return generic?.call(this);
   }
@@ -228,6 +245,7 @@ class _$_Generic extends _Generic {
     TResult Function(_NoNetwork value)? noNetwork,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_NoTrailer value)? noTrailer,
     required TResult orElse(),
   }) {
     if (generic != null) {
@@ -284,6 +302,7 @@ class _$_NoNetwork extends _NoNetwork {
     required TResult Function() noNetwork,
     required TResult Function() unauthorized,
     required TResult Function() serverError,
+    required TResult Function(int movieId) noTrailer,
   }) {
     return noNetwork();
   }
@@ -295,6 +314,7 @@ class _$_NoNetwork extends _NoNetwork {
     TResult Function()? noNetwork,
     TResult Function()? unauthorized,
     TResult Function()? serverError,
+    TResult Function(int movieId)? noTrailer,
   }) {
     return noNetwork?.call();
   }
@@ -306,6 +326,7 @@ class _$_NoNetwork extends _NoNetwork {
     TResult Function()? noNetwork,
     TResult Function()? unauthorized,
     TResult Function()? serverError,
+    TResult Function(int movieId)? noTrailer,
     required TResult orElse(),
   }) {
     if (noNetwork != null) {
@@ -321,6 +342,7 @@ class _$_NoNetwork extends _NoNetwork {
     required TResult Function(_NoNetwork value) noNetwork,
     required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_ServerError value) serverError,
+    required TResult Function(_NoTrailer value) noTrailer,
   }) {
     return noNetwork(this);
   }
@@ -332,6 +354,7 @@ class _$_NoNetwork extends _NoNetwork {
     TResult Function(_NoNetwork value)? noNetwork,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_NoTrailer value)? noTrailer,
   }) {
     return noNetwork?.call(this);
   }
@@ -343,6 +366,7 @@ class _$_NoNetwork extends _NoNetwork {
     TResult Function(_NoNetwork value)? noNetwork,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_NoTrailer value)? noTrailer,
     required TResult orElse(),
   }) {
     if (noNetwork != null) {
@@ -395,6 +419,7 @@ class _$_Unauthorized extends _Unauthorized {
     required TResult Function() noNetwork,
     required TResult Function() unauthorized,
     required TResult Function() serverError,
+    required TResult Function(int movieId) noTrailer,
   }) {
     return unauthorized();
   }
@@ -406,6 +431,7 @@ class _$_Unauthorized extends _Unauthorized {
     TResult Function()? noNetwork,
     TResult Function()? unauthorized,
     TResult Function()? serverError,
+    TResult Function(int movieId)? noTrailer,
   }) {
     return unauthorized?.call();
   }
@@ -417,6 +443,7 @@ class _$_Unauthorized extends _Unauthorized {
     TResult Function()? noNetwork,
     TResult Function()? unauthorized,
     TResult Function()? serverError,
+    TResult Function(int movieId)? noTrailer,
     required TResult orElse(),
   }) {
     if (unauthorized != null) {
@@ -432,6 +459,7 @@ class _$_Unauthorized extends _Unauthorized {
     required TResult Function(_NoNetwork value) noNetwork,
     required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_ServerError value) serverError,
+    required TResult Function(_NoTrailer value) noTrailer,
   }) {
     return unauthorized(this);
   }
@@ -443,6 +471,7 @@ class _$_Unauthorized extends _Unauthorized {
     TResult Function(_NoNetwork value)? noNetwork,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_NoTrailer value)? noTrailer,
   }) {
     return unauthorized?.call(this);
   }
@@ -454,6 +483,7 @@ class _$_Unauthorized extends _Unauthorized {
     TResult Function(_NoNetwork value)? noNetwork,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_NoTrailer value)? noTrailer,
     required TResult orElse(),
   }) {
     if (unauthorized != null) {
@@ -506,6 +536,7 @@ class _$_ServerError extends _ServerError {
     required TResult Function() noNetwork,
     required TResult Function() unauthorized,
     required TResult Function() serverError,
+    required TResult Function(int movieId) noTrailer,
   }) {
     return serverError();
   }
@@ -517,6 +548,7 @@ class _$_ServerError extends _ServerError {
     TResult Function()? noNetwork,
     TResult Function()? unauthorized,
     TResult Function()? serverError,
+    TResult Function(int movieId)? noTrailer,
   }) {
     return serverError?.call();
   }
@@ -528,6 +560,7 @@ class _$_ServerError extends _ServerError {
     TResult Function()? noNetwork,
     TResult Function()? unauthorized,
     TResult Function()? serverError,
+    TResult Function(int movieId)? noTrailer,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -543,6 +576,7 @@ class _$_ServerError extends _ServerError {
     required TResult Function(_NoNetwork value) noNetwork,
     required TResult Function(_Unauthorized value) unauthorized,
     required TResult Function(_ServerError value) serverError,
+    required TResult Function(_NoTrailer value) noTrailer,
   }) {
     return serverError(this);
   }
@@ -554,6 +588,7 @@ class _$_ServerError extends _ServerError {
     TResult Function(_NoNetwork value)? noNetwork,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_NoTrailer value)? noTrailer,
   }) {
     return serverError?.call(this);
   }
@@ -565,6 +600,7 @@ class _$_ServerError extends _ServerError {
     TResult Function(_NoNetwork value)? noNetwork,
     TResult Function(_Unauthorized value)? unauthorized,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_NoTrailer value)? noTrailer,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -577,4 +613,150 @@ class _$_ServerError extends _ServerError {
 abstract class _ServerError extends Failure {
   const factory _ServerError() = _$_ServerError;
   const _ServerError._() : super._();
+}
+
+/// @nodoc
+abstract class _$NoTrailerCopyWith<$Res> {
+  factory _$NoTrailerCopyWith(
+          _NoTrailer value, $Res Function(_NoTrailer) then) =
+      __$NoTrailerCopyWithImpl<$Res>;
+  $Res call({int movieId});
+}
+
+/// @nodoc
+class __$NoTrailerCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
+    implements _$NoTrailerCopyWith<$Res> {
+  __$NoTrailerCopyWithImpl(_NoTrailer _value, $Res Function(_NoTrailer) _then)
+      : super(_value, (v) => _then(v as _NoTrailer));
+
+  @override
+  _NoTrailer get _value => super._value as _NoTrailer;
+
+  @override
+  $Res call({
+    Object? movieId = freezed,
+  }) {
+    return _then(_NoTrailer(
+      movieId == freezed
+          ? _value.movieId
+          : movieId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_NoTrailer extends _NoTrailer {
+  const _$_NoTrailer(this.movieId) : super._();
+
+  @override
+  final int movieId;
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _NoTrailer &&
+            (identical(other.movieId, movieId) ||
+                const DeepCollectionEquality().equals(other.movieId, movieId)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(movieId);
+
+  @JsonKey(ignore: true)
+  @override
+  _$NoTrailerCopyWith<_NoTrailer> get copyWith =>
+      __$NoTrailerCopyWithImpl<_NoTrailer>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String message) generic,
+    required TResult Function() noNetwork,
+    required TResult Function() unauthorized,
+    required TResult Function() serverError,
+    required TResult Function(int movieId) noTrailer,
+  }) {
+    return noTrailer(movieId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String message)? generic,
+    TResult Function()? noNetwork,
+    TResult Function()? unauthorized,
+    TResult Function()? serverError,
+    TResult Function(int movieId)? noTrailer,
+  }) {
+    return noTrailer?.call(movieId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? generic,
+    TResult Function()? noNetwork,
+    TResult Function()? unauthorized,
+    TResult Function()? serverError,
+    TResult Function(int movieId)? noTrailer,
+    required TResult orElse(),
+  }) {
+    if (noTrailer != null) {
+      return noTrailer(movieId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Generic value) generic,
+    required TResult Function(_NoNetwork value) noNetwork,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_NoTrailer value) noTrailer,
+  }) {
+    return noTrailer(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Generic value)? generic,
+    TResult Function(_NoNetwork value)? noNetwork,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_NoTrailer value)? noTrailer,
+  }) {
+    return noTrailer?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Generic value)? generic,
+    TResult Function(_NoNetwork value)? noNetwork,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_NoTrailer value)? noTrailer,
+    required TResult orElse(),
+  }) {
+    if (noTrailer != null) {
+      return noTrailer(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NoTrailer extends Failure {
+  const factory _NoTrailer(int movieId) = _$_NoTrailer;
+  const _NoTrailer._() : super._();
+
+  int get movieId => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$NoTrailerCopyWith<_NoTrailer> get copyWith =>
+      throw _privateConstructorUsedError;
 }
