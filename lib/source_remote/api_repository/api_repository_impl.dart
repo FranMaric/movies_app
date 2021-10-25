@@ -98,6 +98,11 @@ class ApiRepositoryImpl implements ApiRepository {
   }
 
   @override
+  Future<Response> getTrailers({required int movieId}) {
+    return _dio.get('/movie/$movieId/videos');
+  }
+
+  @override
   Future<Response> searchActors({required String query, required int page}) async {
     return _dio.get(
       '/search/person',
