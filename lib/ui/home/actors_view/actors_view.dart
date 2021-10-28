@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:movie_app/ui/actor_details/actors_details_screen.dart';
 import 'package:movie_app/ui/common/stateful_wrapper.dart';
 import 'package:movie_app/ui/error_handling/failure_handling_mixin.dart';
 import 'package:movie_app/ui/home/actors_view/actor_widget.dart';
@@ -77,7 +78,7 @@ class ActorsView extends StatelessWidget with FailureHandlingMixin {
                                   if (index < actors.length) {
                                     return ActorWidget(
                                       actor: actors[index],
-                                      onTap: () => print(actors[index]), // TODO: navigate to ActorDetailsScreen
+                                      onTap: () => Navigator.of(context).pushNamed(ActorDetailsScreen.route, arguments: actors[index]),
                                     );
                                   }
 
