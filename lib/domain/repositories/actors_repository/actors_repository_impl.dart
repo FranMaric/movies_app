@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:movie_app/domain/models/actor.dart';
+import 'package:movie_app/domain/models/api_image.dart';
 import 'package:movie_app/domain/models/failure.dart';
 import 'package:movie_app/domain/repositories/actors_repository/actors_repository.dart';
 import 'package:movie_app/source_remote/api_repository/api_repository.dart';
@@ -39,6 +40,25 @@ class ActorsRepositoryImpl implements ActorsRepository {
         final actors = List<Map<String, dynamic>>.from(response.data['results'] as List).map((actor) => Actor.fromJson(actor)).toList();
 
         return Right(actors);
+      }
+
+      return Left(Failure.fromResponse(response));
+    } on DioError catch (dioError) {
+      return Left(Failure.fromDioError(dioError));
+    } catch (e) {
+      return Left(Failure.generic(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<ApiImage>>> getActorImages({required int actorId}) async {
+    try {
+      final response = await _apiRepository.getActorImages(actorId: actorId);
+
+      if (response.statusCode.isSuccessful) {
+        final actorImages = List<Map<String, dynamic>>.from(response.data['profiles'] as List).map((image) => ApiImage.fromJson(image)).toList();
+
+        return Right(actorImages);
       }
 
       return Left(Failure.fromResponse(response));
