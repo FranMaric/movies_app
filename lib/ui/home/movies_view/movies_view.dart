@@ -4,7 +4,7 @@ import 'package:movie_app/ui/common/stateful_wrapper.dart';
 import 'package:movie_app/ui/error_handling/failure_handling_mixin.dart';
 import 'package:movie_app/ui/home/movies_view/genres_list.dart';
 import 'package:movie_app/ui/home/movies_view/movie_widget.dart';
-import 'package:movie_app/ui/home/movies_view/provider/movies_notifier_provider.dart';
+import 'package:movie_app/ui/home/movies_view/provider/movies_view_notifier_provider.dart';
 import 'package:movie_app/ui/home/movies_view/provider/movies_state.dart';
 import 'package:movie_app/ui/home/widgets/scroll_to_top_fab.dart';
 import 'package:movie_app/ui/home/widgets/search_bar.dart';

@@ -4,7 +4,7 @@ import 'package:movie_app/app/colors.dart';
 import 'package:movie_app/domain/models/genre.dart';
 import 'package:movie_app/ui/home/movies_view/provider/current_genre_index_notifier_provider.dart';
 import 'package:movie_app/ui/home/movies_view/provider/genres_provider.dart';
-import 'package:movie_app/ui/home/movies_view/provider/movies_notifier_provider.dart';
+import 'package:movie_app/ui/home/movies_view/provider/movies_view_notifier_provider.dart';
 
 const topRatedGenre = Genre(name: 'Top Rated', id: 1);
 
