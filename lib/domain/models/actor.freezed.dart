@@ -23,26 +23,18 @@ class _$ActorTearOff {
 
   _Actor call(
       {required bool adult,
-      required int? gender,
       required int id,
       required String name,
-      required String character,
+      String? character,
       required double popularity,
-      @JsonKey(name: 'known_for_department')
-          required String knownForDepartment,
-      @JsonKey(name: 'original_name')
-          required String originalName,
       @JsonKey(name: 'profile_path', fromJson: toUrl, toJson: fromUrl)
           String? profilePath}) {
     return _Actor(
       adult: adult,
-      gender: gender,
       id: id,
       name: name,
       character: character,
       popularity: popularity,
-      knownForDepartment: knownForDepartment,
-      originalName: originalName,
       profilePath: profilePath,
     );
   }
@@ -58,15 +50,10 @@ const $Actor = _$ActorTearOff();
 /// @nodoc
 mixin _$Actor {
   bool get adult => throw _privateConstructorUsedError;
-  int? get gender => throw _privateConstructorUsedError;
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get character => throw _privateConstructorUsedError;
+  String? get character => throw _privateConstructorUsedError;
   double get popularity => throw _privateConstructorUsedError;
-  @JsonKey(name: 'known_for_department')
-  String get knownForDepartment => throw _privateConstructorUsedError;
-  @JsonKey(name: 'original_name')
-  String get originalName => throw _privateConstructorUsedError;
   @JsonKey(name: 'profile_path', fromJson: toUrl, toJson: fromUrl)
   String? get profilePath => throw _privateConstructorUsedError;
 
@@ -81,15 +68,10 @@ abstract class $ActorCopyWith<$Res> {
       _$ActorCopyWithImpl<$Res>;
   $Res call(
       {bool adult,
-      int? gender,
       int id,
       String name,
-      String character,
+      String? character,
       double popularity,
-      @JsonKey(name: 'known_for_department')
-          String knownForDepartment,
-      @JsonKey(name: 'original_name')
-          String originalName,
       @JsonKey(name: 'profile_path', fromJson: toUrl, toJson: fromUrl)
           String? profilePath});
 }
@@ -105,13 +87,10 @@ class _$ActorCopyWithImpl<$Res> implements $ActorCopyWith<$Res> {
   @override
   $Res call({
     Object? adult = freezed,
-    Object? gender = freezed,
     Object? id = freezed,
     Object? name = freezed,
     Object? character = freezed,
     Object? popularity = freezed,
-    Object? knownForDepartment = freezed,
-    Object? originalName = freezed,
     Object? profilePath = freezed,
   }) {
     return _then(_value.copyWith(
@@ -119,10 +98,6 @@ class _$ActorCopyWithImpl<$Res> implements $ActorCopyWith<$Res> {
           ? _value.adult
           : adult // ignore: cast_nullable_to_non_nullable
               as bool,
-      gender: gender == freezed
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as int?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -134,19 +109,11 @@ class _$ActorCopyWithImpl<$Res> implements $ActorCopyWith<$Res> {
       character: character == freezed
           ? _value.character
           : character // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       popularity: popularity == freezed
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
               as double,
-      knownForDepartment: knownForDepartment == freezed
-          ? _value.knownForDepartment
-          : knownForDepartment // ignore: cast_nullable_to_non_nullable
-              as String,
-      originalName: originalName == freezed
-          ? _value.originalName
-          : originalName // ignore: cast_nullable_to_non_nullable
-              as String,
       profilePath: profilePath == freezed
           ? _value.profilePath
           : profilePath // ignore: cast_nullable_to_non_nullable
@@ -162,15 +129,10 @@ abstract class _$ActorCopyWith<$Res> implements $ActorCopyWith<$Res> {
   @override
   $Res call(
       {bool adult,
-      int? gender,
       int id,
       String name,
-      String character,
+      String? character,
       double popularity,
-      @JsonKey(name: 'known_for_department')
-          String knownForDepartment,
-      @JsonKey(name: 'original_name')
-          String originalName,
       @JsonKey(name: 'profile_path', fromJson: toUrl, toJson: fromUrl)
           String? profilePath});
 }
@@ -187,13 +149,10 @@ class __$ActorCopyWithImpl<$Res> extends _$ActorCopyWithImpl<$Res>
   @override
   $Res call({
     Object? adult = freezed,
-    Object? gender = freezed,
     Object? id = freezed,
     Object? name = freezed,
     Object? character = freezed,
     Object? popularity = freezed,
-    Object? knownForDepartment = freezed,
-    Object? originalName = freezed,
     Object? profilePath = freezed,
   }) {
     return _then(_Actor(
@@ -201,10 +160,6 @@ class __$ActorCopyWithImpl<$Res> extends _$ActorCopyWithImpl<$Res>
           ? _value.adult
           : adult // ignore: cast_nullable_to_non_nullable
               as bool,
-      gender: gender == freezed
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as int?,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -216,19 +171,11 @@ class __$ActorCopyWithImpl<$Res> extends _$ActorCopyWithImpl<$Res>
       character: character == freezed
           ? _value.character
           : character // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       popularity: popularity == freezed
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
               as double,
-      knownForDepartment: knownForDepartment == freezed
-          ? _value.knownForDepartment
-          : knownForDepartment // ignore: cast_nullable_to_non_nullable
-              as String,
-      originalName: originalName == freezed
-          ? _value.originalName
-          : originalName // ignore: cast_nullable_to_non_nullable
-              as String,
       profilePath: profilePath == freezed
           ? _value.profilePath
           : profilePath // ignore: cast_nullable_to_non_nullable
@@ -242,15 +189,10 @@ class __$ActorCopyWithImpl<$Res> extends _$ActorCopyWithImpl<$Res>
 class _$_Actor implements _Actor {
   const _$_Actor(
       {required this.adult,
-      required this.gender,
       required this.id,
       required this.name,
-      required this.character,
+      this.character,
       required this.popularity,
-      @JsonKey(name: 'known_for_department')
-          required this.knownForDepartment,
-      @JsonKey(name: 'original_name')
-          required this.originalName,
       @JsonKey(name: 'profile_path', fromJson: toUrl, toJson: fromUrl)
           this.profilePath});
 
@@ -260,28 +202,20 @@ class _$_Actor implements _Actor {
   @override
   final bool adult;
   @override
-  final int? gender;
-  @override
   final int id;
   @override
   final String name;
   @override
-  final String character;
+  final String? character;
   @override
   final double popularity;
-  @override
-  @JsonKey(name: 'known_for_department')
-  final String knownForDepartment;
-  @override
-  @JsonKey(name: 'original_name')
-  final String originalName;
   @override
   @JsonKey(name: 'profile_path', fromJson: toUrl, toJson: fromUrl)
   final String? profilePath;
 
   @override
   String toString() {
-    return 'Actor(adult: $adult, gender: $gender, id: $id, name: $name, character: $character, popularity: $popularity, knownForDepartment: $knownForDepartment, originalName: $originalName, profilePath: $profilePath)';
+    return 'Actor(adult: $adult, id: $id, name: $name, character: $character, popularity: $popularity, profilePath: $profilePath)';
   }
 
   @override
@@ -290,8 +224,6 @@ class _$_Actor implements _Actor {
         (other is _Actor &&
             (identical(other.adult, adult) ||
                 const DeepCollectionEquality().equals(other.adult, adult)) &&
-            (identical(other.gender, gender) ||
-                const DeepCollectionEquality().equals(other.gender, gender)) &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
@@ -302,12 +234,6 @@ class _$_Actor implements _Actor {
             (identical(other.popularity, popularity) ||
                 const DeepCollectionEquality()
                     .equals(other.popularity, popularity)) &&
-            (identical(other.knownForDepartment, knownForDepartment) ||
-                const DeepCollectionEquality()
-                    .equals(other.knownForDepartment, knownForDepartment)) &&
-            (identical(other.originalName, originalName) ||
-                const DeepCollectionEquality()
-                    .equals(other.originalName, originalName)) &&
             (identical(other.profilePath, profilePath) ||
                 const DeepCollectionEquality()
                     .equals(other.profilePath, profilePath)));
@@ -317,13 +243,10 @@ class _$_Actor implements _Actor {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(adult) ^
-      const DeepCollectionEquality().hash(gender) ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(character) ^
       const DeepCollectionEquality().hash(popularity) ^
-      const DeepCollectionEquality().hash(knownForDepartment) ^
-      const DeepCollectionEquality().hash(originalName) ^
       const DeepCollectionEquality().hash(profilePath);
 
   @JsonKey(ignore: true)
@@ -340,15 +263,10 @@ class _$_Actor implements _Actor {
 abstract class _Actor implements Actor {
   const factory _Actor(
       {required bool adult,
-      required int? gender,
       required int id,
       required String name,
-      required String character,
+      String? character,
       required double popularity,
-      @JsonKey(name: 'known_for_department')
-          required String knownForDepartment,
-      @JsonKey(name: 'original_name')
-          required String originalName,
       @JsonKey(name: 'profile_path', fromJson: toUrl, toJson: fromUrl)
           String? profilePath}) = _$_Actor;
 
@@ -357,21 +275,13 @@ abstract class _Actor implements Actor {
   @override
   bool get adult => throw _privateConstructorUsedError;
   @override
-  int? get gender => throw _privateConstructorUsedError;
-  @override
   int get id => throw _privateConstructorUsedError;
   @override
   String get name => throw _privateConstructorUsedError;
   @override
-  String get character => throw _privateConstructorUsedError;
+  String? get character => throw _privateConstructorUsedError;
   @override
   double get popularity => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(name: 'known_for_department')
-  String get knownForDepartment => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(name: 'original_name')
-  String get originalName => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'profile_path', fromJson: toUrl, toJson: fromUrl)
   String? get profilePath => throw _privateConstructorUsedError;
