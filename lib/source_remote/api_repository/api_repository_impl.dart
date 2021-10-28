@@ -51,6 +51,8 @@ class ApiRepositoryImpl implements ApiRepository {
     }
   }
 
+  // Movie methods
+
   @override
   Future<Response> getAllGenres() {
     return _dio.get('/genre/movie/list');
@@ -102,6 +104,8 @@ class ApiRepositoryImpl implements ApiRepository {
     return _dio.get('/movie/$movieId/videos');
   }
 
+  // Actor methods
+
   @override
   Future<Response> searchActors({required String query, required int page}) async {
     return _dio.get(
@@ -122,6 +126,8 @@ class ApiRepositoryImpl implements ApiRepository {
       },
     );
   }
+
+  // GuesstSession methods
 
   void initializeGuesstSession() async {
     final guestSessionString = _prefs.getString(guestSessionPrefsKey);
