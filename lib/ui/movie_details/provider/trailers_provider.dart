@@ -2,7 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:movie_app/domain/models/failure.dart';
 import 'package:movie_app/domain/models/trailer.dart';
 import 'package:movie_app/domain/repositories/movies_repository/movies_repository_provider.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 final trailersProvider = FutureProvider.family<String, int>((ref, movieId) async {
   final moviesRepository = ref.watch(moviesRepositoryProvider);
