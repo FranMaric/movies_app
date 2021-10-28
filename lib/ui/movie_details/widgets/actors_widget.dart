@@ -48,7 +48,7 @@ class ActorsWidget extends ConsumerWidget {
                 movieCredits.cast[index].name,
                 style: Theme.of(context).textTheme.subtitle2,
               ),
-              subtitle: movieCredits.cast[index].character.isNotEmpty
+              subtitle: movieCredits.cast[index].character != null && movieCredits.cast[index].character!.isNotEmpty
                   ? Text(
                       'Character: ${movieCredits.cast[index].character}',
                       style: Theme.of(context).textTheme.subtitle2?.copyWith(fontSize: 14),
