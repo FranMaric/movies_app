@@ -61,6 +61,15 @@ class MoviesView extends StatelessWidget with FailureHandlingMixin {
                           ),
                         ),
                         data: (page, isLoadingNextPage, query, movies) {
+                          if (movies.isEmpty) {
+                            return Center(
+                              child: Text(
+                                'No movies',
+                                style: Theme.of(context).textTheme.subtitle1,
+                              ),
+                            );
+                          }
+
                           return RefreshIndicator(
                             onRefresh: context.read(moviesViewNotifierProvider.notifier).onRefresh,
                             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
