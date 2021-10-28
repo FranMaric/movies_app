@@ -14,5 +14,5 @@ abstract class ApiRepository {
   Future<Response> getTrailers({required int movieId});
 
   Future<Response> searchActors({required String query, required int page});
-  Future<Response> getTopRatedActors({required int page});
+  Future<Response> getPopularActors({required int page});
 }

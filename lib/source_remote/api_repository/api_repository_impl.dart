@@ -114,9 +114,9 @@ class ApiRepositoryImpl implements ApiRepository {
   }
 
   @override
-  Future<Response> getTopRatedActors({required int page}) {
+  Future<Response> getPopularActors({required int page}) {
     return _dio.get(
-      '/person/top_rated',
+      '/person/popular',
       queryParameters: <String, dynamic>{
         'page': page,
       },
