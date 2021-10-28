@@ -1,15 +1,18 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:movie_app/domain/repositories/movies_repository/movies_repository.dart';
+import 'package:movie_app/ui/home/movies_view/provider/current_genre_index_notifier_provider.dart';
 import 'package:movie_app/ui/home/movies_view/provider/movies_state.dart';
 
 class MoviesNotifier extends StateNotifier<MoviesState> {
-  MoviesNotifier({required MoviesRepository moviesRepository})
+  MoviesNotifier({required MoviesRepository moviesRepository, required ProviderReference ref})
       : _moviesRepository = moviesRepository,
+        _ref = ref,
         super(const MoviesState.initial()) {
     getTopRatedMovies(page: 1);
   }
 
   final MoviesRepository _moviesRepository;
+  final ProviderReference _ref;
 
   void getTopRatedMovies({required int page}) async {
     state = const MoviesState.loading();
@@ -25,8 +28,10 @@ class MoviesNotifier extends StateNotifier<MoviesState> {
     );
   }
 
-  void onSearch(String query) async {
+  void onSearch(String query, {bool fromGenreList = false}) async {
     if (query.isEmpty) return;
+
+    if (!fromGenreList) _ref.read(currentGenreIndexNotifierProvider.notifier).clear();
 
     state = const MoviesState.loading();
 

@@ -4,5 +4,5 @@ import 'package:movie_app/ui/home/movies_view/provider/movies_notifier.dart';
 import 'package:movie_app/ui/home/movies_view/provider/movies_state.dart';
 
 final moviesViewNotifierProvider = StateNotifierProvider<MoviesNotifier, MoviesState>(
-  (ref) => MoviesNotifier(moviesRepository: ref.watch(moviesRepositoryProvider)),
+  (ref) => MoviesNotifier(moviesRepository: ref.watch(moviesRepositoryProvider), ref: ref),
 );
