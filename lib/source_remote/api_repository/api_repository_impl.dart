@@ -132,6 +132,16 @@ class ApiRepositoryImpl implements ApiRepository {
     return _dio.get('/person/$actorId/images');
   }
 
+  @override
+  Future<Response> getActorDetails({required int actorId}) {
+    return _dio.get('/person/$actorId');
+  }
+
+  @override
+  Future<Response> getActorCredits({required int actorId}) {
+    return _dio.get('/person/$actorId/movie_credits');
+  }
+
   // GuesstSession methods
 
   void initializeGuesstSession() async {

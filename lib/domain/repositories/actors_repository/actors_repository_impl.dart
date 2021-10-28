@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:movie_app/domain/models/actor.dart';
+import 'package:movie_app/domain/models/actor_credit.dart';
+import 'package:movie_app/domain/models/actor_details.dart';
 import 'package:movie_app/domain/models/api_image.dart';
 import 'package:movie_app/domain/models/failure.dart';
 import 'package:movie_app/domain/repositories/actors_repository/actors_repository.dart';
@@ -59,6 +61,45 @@ class ActorsRepositoryImpl implements ActorsRepository {
         final actorImages = List<Map<String, dynamic>>.from(response.data['profiles'] as List).map((image) => ApiImage.fromJson(image)).toList();
 
         return Right(actorImages);
+      }
+
+      return Left(Failure.fromResponse(response));
+    } on DioError catch (dioError) {
+      return Left(Failure.fromDioError(dioError));
+    } catch (e) {
+      return Left(Failure.generic(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, ActorDetails>> getActorDetails({required int actorId}) async {
+    try {
+      final response = await _apiRepository.getActorDetails(actorId: actorId);
+
+      if (response.statusCode.isSuccessful) {
+        final actorDetails = ActorDetails.fromJson(response.data);
+
+        return Right(actorDetails);
+      }
+
+      return Left(Failure.fromResponse(response));
+    } on DioError catch (dioError) {
+      return Left(Failure.fromDioError(dioError));
+    } catch (e) {
+      return Left(Failure.generic(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<ActorCredit>>> getActorCredits({required int actorId}) async {
+    try {
+      final response = await _apiRepository.getActorCredits(actorId: actorId);
+
+      if (response.statusCode.isSuccessful) {
+        final actorCredits =
+            List<Map<String, dynamic>>.from(response.data['cast'] as List).map((actorCredit) => ActorCredit.fromJson(actorCredit)).toList();
+
+        return Right(actorCredits);
       }
 
       return Left(Failure.fromResponse(response));
